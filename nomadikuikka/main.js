@@ -13,7 +13,10 @@ async function getapi(url) {
     show(data);
 }
 
-setTimeout("location.reload(True);", 5000);
+setTimeout(() => {
+    window.location.reload();
+  }, 3000);
+  
 
 // Function to hide the loader
 function hideloader() {
