@@ -1,6 +1,6 @@
 // api url
 const api_url =
-    "https://157.245.65.253/";
+    "http://157.245.65.253/";
 
 // gets all the drone data from the fastapi
 async function getapi(url) {
