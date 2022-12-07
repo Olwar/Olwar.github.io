@@ -17,7 +17,7 @@ function startLiveUpdate() {
     setInterval(function() {
         getapi(api_url);
         //birdnest_img();
-    }, 1000);
+    }, 2000);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
