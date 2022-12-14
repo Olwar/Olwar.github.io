@@ -1,6 +1,5 @@
 // api url
-const api_url = "http://127.0.0.1:8000"
-    //"https://134-122-52-132.sslip.io/";
+const api_url = "https://134-122-52-132.sslip.io/";
 
 // gets all the drone data from the fastapi
 async function getapi(url) {
