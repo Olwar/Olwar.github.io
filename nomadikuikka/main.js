@@ -34,7 +34,7 @@ function show(data) {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Distance</th>
+                <th>Distance (m)</th>
             </tr>`;
     for (r of data) {
         tab += `
@@ -43,7 +43,7 @@ function show(data) {
                 <td>${r[1]}</td>
                 <td>${r[2]}</td>
                 <td>${r[3]}</td>
-                <td>${r[4]}</td>
+                <td>${Math.round(r[4] * 100) / 100}</td>
             </tr>
         </table>`;
     }
