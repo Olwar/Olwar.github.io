@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FadeIn } from "@/lib/animation";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -65,7 +64,7 @@ const ContactSection: React.FC = () => {
       </FadeIn>
       
       {/* Floating profile image */}
-      <div className="absolute right-0 -top-10 md:top-0 lg:right-20 xl:right-40 animate-float">
+      <div className="absolute right-0 -top-20 md:top-0 lg:right-20 xl:right-40 animate-float">
         <img 
           src="/lovable-uploads/e46df8e3-b16d-46cb-b993-a57a069db2ea.png" 
           alt="Olli Airola" 
@@ -77,4 +76,3 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
-
