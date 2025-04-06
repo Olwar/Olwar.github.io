@@ -1,4 +1,3 @@
-
 import React from "react";
 import Model3D from "./Model3D";
 import { Separator } from "@/components/ui/separator";
@@ -7,8 +6,8 @@ const MainPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white py-16 px-4 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="h-[400px] animate-slide-left">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10 items-center">
+          <div className="h-full min-h-[300px] md:min-h-[400px] overflow-hidden flex justify-end items-center">
             <Model3D isLanding={false} />
           </div>
           
