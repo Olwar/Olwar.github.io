@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FadeIn } from "@/lib/animation";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -69,7 +68,7 @@ const ContactSection: React.FC = () => {
         <img 
           src="/lovable-uploads/e46df8e3-b16d-46cb-b993-a57a069db2ea.png" 
           alt="Olli Airola" 
-          className="w-32 h-32 md:w-48 md:h-48 object-contain"
+          className="w-24 h-24 md:w-36 md:h-36 object-contain"
         />
       </div>
     </div>
