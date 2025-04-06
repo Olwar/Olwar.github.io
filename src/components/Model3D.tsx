@@ -1,5 +1,6 @@
+
 import React, { useRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Mesh, Group } from "three";
 
@@ -8,7 +9,8 @@ interface ModelProps {
   onClick?: () => void;
 }
 
-function Model({ isLanding, onClick }: ModelProps) {
+// Separate component for the 3D model to ensure hooks are used properly
+function ModelObject({ isLanding, onClick }: ModelProps) {
   const modelRef = useRef<Group>(null);
   const [hovered, setHovered] = useState(false);
   const { scene } = useGLTF("/3dOlli.glb");
@@ -33,6 +35,20 @@ function Model({ isLanding, onClick }: ModelProps) {
   );
 }
 
+// Controls component to properly handle orbit controls
+function ModelControls({ isLanding }: { isLanding: boolean }) {
+  return (
+    <OrbitControls 
+      enableZoom={false}
+      enablePan={false}
+      autoRotate={isLanding}
+      autoRotateSpeed={1}
+      enabled={isLanding}
+    />
+  );
+}
+
+// Main component wrapper
 export default function Model3D({ isLanding, onClick }: ModelProps) {
   return (
     <div className={`h-full w-full ${isLanding ? 'cursor-pointer' : ''}`}>
@@ -41,15 +57,8 @@ export default function Model3D({ isLanding, onClick }: ModelProps) {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         
-        <Model isLanding={isLanding} onClick={onClick} />
-        
-        <OrbitControls 
-          enableZoom={false}
-          enablePan={false}
-          autoRotate={isLanding}
-          autoRotateSpeed={1}
-          enabled={isLanding}
-        />
+        <ModelObject isLanding={isLanding} onClick={onClick} />
+        <ModelControls isLanding={isLanding} />
       </Canvas>
     </div>
   );
