@@ -14,7 +14,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="h-[400px] w-[400px] mx-auto animate-float">
           <Model3D isLanding={true} onClick={onEnter} />
         </div>
-        <p className="mt-8 text-sm text-gray-400">Click the model to enter</p>
+        <p className="mt-8 text-sm text-gray-400">Click me to enter</p>
       </div>
     </div>
   );
