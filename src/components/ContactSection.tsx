@@ -39,7 +39,7 @@ const contactLinks: ContactLink[] = [
 
 const ContactSection: React.FC = () => {
   return (
-    <div className="py-16">
+    <div className="py-16 relative">
       <FadeIn delay={500}>
         <h2 className="text-2xl font-light tracking-wider mb-8">CONTACT</h2>
         
@@ -63,6 +63,15 @@ const ContactSection: React.FC = () => {
           ))}
         </div>
       </FadeIn>
+      
+      {/* Floating profile image */}
+      <div className="absolute right-0 -top-20 md:top-0 lg:right-20 xl:right-40 animate-float">
+        <img 
+          src="/lovable-uploads/e46df8e3-b16d-46cb-b993-a57a069db2ea.png" 
+          alt="Olli Airola" 
+          className="w-32 h-32 md:w-48 md:h-48 object-contain"
+        />
+      </div>
     </div>
   );
 };
