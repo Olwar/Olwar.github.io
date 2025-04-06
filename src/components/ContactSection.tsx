@@ -30,7 +30,7 @@ const contactLinks = [
   }
 ];
 
-function ContactSection() {
+const ContactSection = () => {
   let notificationTimeout = null;
   
   const copyEmail = (e) => {
@@ -65,7 +65,7 @@ function ContactSection() {
   };
 
   return (
-    <div className="py-16 relative">
+    <section className="py-16 relative">
       <FadeIn delay={500}>
         <h2 className="text-2xl font-light tracking-wider mb-8">CONTACT</h2>
         
@@ -105,11 +105,11 @@ function ContactSection() {
       <div className="hidden md:block absolute bottom-[-30px] right-[-30px] md:right-0 lg:right-[-50px] xl:right-[-80px] animate-float">
         <img 
           src="/olli_circle.png" 
-          alt="Olli Airola" 
+          alt="Olli Airola profile picture"
           className="md:w-20 md:h-20 object-contain ring-1 ring-black"
         />
       </div>
-    </div>
+    </section>
   );
 }
 

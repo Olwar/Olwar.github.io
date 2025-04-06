@@ -30,9 +30,9 @@ const projects: Project[] = [
   }
 ];
 
-const ProjectsSection: React.FC = () => {
+const ProjectsSection = () => {
   return (
-    <div className="py-16">
+    <section className="py-16">
       <FadeIn delay={450}>
         <h2 className="text-2xl font-light tracking-wider mb-8">PROJECTS</h2>
         
@@ -59,7 +59,7 @@ const ProjectsSection: React.FC = () => {
           ))}
         </div>
       </FadeIn>
-    </div>
+    </section>
   );
 };
 

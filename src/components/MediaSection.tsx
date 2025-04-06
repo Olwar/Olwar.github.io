@@ -42,9 +42,9 @@ const mediaItems: MediaItem[] = [
   }
 ];
 
-const MediaSection: React.FC = () => {
+const MediaSection = () => {
   return (
-    <div className="py-16">
+    <section className="py-16">
       <FadeIn delay={300}>
         <h2 className="text-2xl font-light tracking-wider mb-8">MEDIA APPEARANCES</h2>
         
@@ -63,7 +63,7 @@ const MediaSection: React.FC = () => {
                       <AspectRatio ratio={4/3} className="bg-gray-800 overflow-hidden mb-3">
                         <img 
                           src={item.image} 
-                          alt={item.title} 
+                          alt={`${item.source} logo - ${item.title}`} 
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         />
                       </AspectRatio>
@@ -79,7 +79,7 @@ const MediaSection: React.FC = () => {
           <CarouselNext className="bg-gray-800 border-gray-700 text-white hover:bg-gray-700 right-1 md:right-4 h-8 w-8 md:h-10 md:w-10" />
         </Carousel>
       </FadeIn>
-    </div>
+    </section>
   );
 };
 
