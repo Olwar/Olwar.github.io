@@ -64,11 +64,11 @@ const ContactSection: React.FC = () => {
       </FadeIn>
       
       {/* Floating profile image */}
-      <div className="absolute right-0 -top-20 md:top-0 lg:right-20 xl:right-40 animate-float">
+      <div className="absolute right-0 -top-0 md:top-20 lg:right-10 xl:right-60 animate-float">
         <img 
           src="/lovable-uploads/e46df8e3-b16d-46cb-b993-a57a069db2ea.png" 
           alt="Olli Airola" 
-          className="w-20 h-20 md:w-32 md:h-32 object-contain transform -scale-x-100"
+          className="w-16 h-16 md:w-20 md:h-20 object-contain transform -scale-x-100"
         />
       </div>
     </div>
