@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Center, Environment } from "@react-three/drei"; // Re-enabled useGLTF and added Center and Environment
+import { OrbitControls, useGLTF, Center, Environment } from "@react-three/drei";
 import { Mesh, Group, Box3, Vector3 } from "three";
 
 interface ModelProps {
@@ -8,13 +8,12 @@ interface ModelProps {
   onClick?: () => void;
 }
 
-// Separate component for the 3D model to ensure hooks are used properly
+// Separate component for the 3D model
 function ModelObject({ isLanding, onClick }: ModelProps) {
-  const modelRef = useRef<Group>(null); // Keep group ref for scale/rotation
-  const [hovered, setHovered] = useState(false);
-  const { scene } = useGLTF("/3dOlli.glb"); // Restore GLTF loading
+  const modelRef = useRef<Group>(null);
+  const { scene } = useGLTF("/3dOlli.glb");
 
-  // Re-enable effect for logging (optional, can be removed later)
+  // Optional logging effect (can be removed)
   useEffect(() => {
     if (scene) {
       console.log("Loaded GLTF Scene:", scene);
@@ -26,23 +25,19 @@ function ModelObject({ isLanding, onClick }: ModelProps) {
     }
   }, [scene]);
   
-  useFrame(() => {
+  // Add back useFrame for slow rotation on main page
+  useFrame((state, delta) => {
     if (modelRef.current && !isLanding) {
-      // Slow automatic rotation when on the main page
-      modelRef.current.rotation.y += 0.003;
+      modelRef.current.rotation.y += 0.5 * delta; // Adjust base speed (0.5) if needed
     }
   });
 
   return (
-    // Use a group to apply rotation/scale/hover effects
     <group 
       ref={modelRef}
       onClick={onClick}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-      scale={hovered && isLanding ? 8.5 : 7.5} // Keep adjusted scale
+      scale={7.5} // Set fixed scale
     >
-      {/* Wrap primitive in Center */}
       <Center>
         <primitive object={scene} />
       </Center>
@@ -50,15 +45,15 @@ function ModelObject({ isLanding, onClick }: ModelProps) {
   );
 }
 
-// Controls component to properly handle orbit controls
+// Controls component
 function ModelControls({ isLanding }: { isLanding: boolean }) {
   return (
     <OrbitControls 
       enableZoom={false}
       enablePan={false}
-      autoRotate={isLanding}
+      autoRotate={isLanding} // Only auto-rotate on landing
       autoRotateSpeed={1}
-      enabled={isLanding}
+      enabled={true} // Always allow manual rotation
     />
   );
 }
@@ -73,7 +68,6 @@ export default function Model3D({ isLanding, onClick }: ModelProps) {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.8} />
         <pointLight position={[-10, -10, -10]} intensity={0.8} />
         
-        {/* Removed the intensity prop from Environment component */}
         <Environment preset="sunset" />
 
         <ModelObject isLanding={isLanding} onClick={onClick} />
