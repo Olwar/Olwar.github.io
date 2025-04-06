@@ -1,4 +1,3 @@
-
 import React from "react";
 import Model3D from "./Model3D";
 import { Separator } from "@/components/ui/separator";
@@ -26,8 +25,9 @@ const MainPage: React.FC = () => {
               <div>
                 <h2 className="text-xl font-medium mb-2 text-gray-300">About</h2>
                 <p className="text-gray-400 leading-relaxed">
-                  Tech professional with expertise in creating innovative solutions. 
-                  Passionate about minimalist design and cutting-edge technology.
+                  Combining content creation, AI and psychology to deepen our understanding of how artificial intelligence can 
+                  enhance our lives. My approach to AI is based on both technical expertise and an understanding of how it affects 
+                  human psychology.
                 </p>
               </div>
               
@@ -35,12 +35,16 @@ const MainPage: React.FC = () => {
                 <h2 className="text-xl font-medium mb-2 text-gray-300">Experience</h2>
                 <ul className="text-gray-400 space-y-3">
                   <li>
-                    <span className="block text-white">Senior Developer</span>
-                    <span className="block text-sm">Tech Company — 2020-Present</span>
+                    <span className="block text-white">Full-stack Developer</span>
+                    <span className="block text-sm">Illusian Founder Office — Oct 2024-Present</span>
                   </li>
                   <li>
-                    <span className="block text-white">Software Engineer</span>
-                    <span className="block text-sm">Innovation Lab — 2017-2020</span>
+                    <span className="block text-white">AI Software Developer | Psychologist</span>
+                    <span className="block text-sm">Self-employed — Oct 2023-Present</span>
+                  </li>
+                  <li>
+                    <span className="block text-white">Data/AI Consultant</span>
+                    <span className="block text-sm">Codento Oy — Apr 2023-Oct 2023</span>
                   </li>
                 </ul>
               </div>

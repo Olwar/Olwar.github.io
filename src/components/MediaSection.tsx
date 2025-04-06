@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Carousel, 
@@ -22,31 +21,24 @@ interface MediaItem {
 const mediaItems: MediaItem[] = [
   {
     id: 1,
-    image: "https://picsum.photos/id/1/400/300",
-    title: "Tech Innovation Interview",
-    source: "Tech Magazine",
-    link: "#"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ylen_logo.svg/600px-Ylen_logo.svg.png",
+    title: "Tekoäly neuvoi toimittajaa laittamaan kynähameen töihin",
+    source: "Yle Kulttuuricocktail",
+    link: "https://yle.fi/a/74-20083714"
   },
   {
     id: 2,
-    image: "https://picsum.photos/id/20/400/300",
-    title: "Future of Development",
-    source: "Digital Trends",
-    link: "#"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ylen_logo.svg/600px-Ylen_logo.svg.png",
+    title: "Toimittaja kokeili terapiaa, jossa terapeutti ei ole ihminen",
+    source: "Yle Kulttuuricocktail",
+    link: "https://yle.fi/a/74-20077840"
   },
   {
     id: 3,
-    image: "https://picsum.photos/id/48/400/300",
-    title: "Industry Leaders Panel",
-    source: "Tech Conference",
-    link: "#"
-  },
-  {
-    id: 4,
-    image: "https://picsum.photos/id/96/400/300",
-    title: "Innovation Spotlight",
-    source: "Developer Weekly",
-    link: "#"
+    image: "https://www.psyli.fi/wp-content/uploads/2020/04/psyli-round.svg",
+    title: "Tekoäly ja psykologia: Vallankumouksellinen liitto",
+    source: "Psykologilehti",
+    link: "https://psykologilehti.fi/tekoaly-ja-psykologia-vallankumouksellinen-liitto/"
   }
 ];
 

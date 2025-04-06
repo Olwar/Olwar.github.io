@@ -13,26 +13,26 @@ const contactLinks: ContactLink[] = [
   {
     id: 1,
     name: "Email",
-    link: "mailto:contact@example.com",
-    description: "Send me an email for business inquiries"
+    link: "mailto:olli@olliairola.com",
+    description: "Send me an email for business inquiries or collaborations"
   },
   {
     id: 2,
     name: "LinkedIn",
-    link: "https://linkedin.com/in/example",
-    description: "Connect with me professionally"
+    link: "https://linkedin.com/in/tekoalyolli",
+    description: "Connect with me professionally on LinkedIn"
   },
   {
     id: 3,
-    name: "Twitter",
-    link: "https://twitter.com/example",
-    description: "Follow for latest updates"
+    name: "AI Newsletter",
+    link: "https://lnkd.in/dvYaSE4N",
+    description: "Subscribe to my free AI newsletter to stay updated"
   },
   {
     id: 4,
-    name: "GitHub",
-    link: "https://github.com/example",
-    description: "Check out my code repositories"
+    name: "Project 5/5",
+    link: "https://www.illusian.io/project-5-5",
+    description: "Learn about our mental health AI initiative"
   }
 ];
 

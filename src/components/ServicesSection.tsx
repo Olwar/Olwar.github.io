@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn } from "@/lib/animation";
@@ -12,18 +11,18 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Software Development",
-    description: "Custom software solutions tailored to meet specific business needs and challenges."
+    title: "AI Development",
+    description: "Building custom AI solutions and integrations with a focus on mental health applications and user-friendly interfaces."
   },
   {
     id: 2,
-    title: "Technical Consulting",
-    description: "Expert guidance on technology decisions, architecture, and implementation strategies."
+    title: "AI Workshops & Training",
+    description: "Educational workshops and training sessions to make AI more accessible and understandable for organizations and individuals."
   },
   {
     id: 3,
-    title: "UI/UX Design",
-    description: "Creating intuitive, user-centered designs that enhance the user experience."
+    title: "Psychology & AI Consulting",
+    description: "Combining psychological expertise with technical knowledge to create AI solutions that truly enhance human experience."
   }
 ];
 
