@@ -1,41 +1,35 @@
-
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { Mesh } from "three";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Mesh, Group } from "three";
 
 interface ModelProps {
   isLanding: boolean;
   onClick?: () => void;
 }
 
-function PlaceholderModel({ isLanding, onClick }: ModelProps) {
-  const meshRef = useRef<Mesh>(null);
+function Model({ isLanding, onClick }: ModelProps) {
+  const modelRef = useRef<Group>(null);
   const [hovered, setHovered] = useState(false);
+  const { scene } = useGLTF("/3dOlli.glb");
   
   useFrame(() => {
-    if (meshRef.current && !isLanding) {
+    if (modelRef.current && !isLanding) {
       // Slow automatic rotation when on the main page
-      meshRef.current.rotation.y += 0.005;
+      modelRef.current.rotation.y += 0.005;
     }
   });
 
   return (
-    <mesh
-      ref={meshRef}
+    <group
+      ref={modelRef}
       onClick={onClick}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       scale={hovered && isLanding ? 1.1 : 1}
     >
-      {/* This is a placeholder for the GLB model */}
-      <sphereGeometry args={[1.5, 32, 32]} />
-      <meshStandardMaterial 
-        color={hovered ? "#666666" : "#444444"} 
-        metalness={0.8}
-        roughness={0.2}
-      />
-    </mesh>
+      <primitive object={scene} />
+    </group>
   );
 }
 
@@ -47,7 +41,7 @@ export default function Model3D({ isLanding, onClick }: ModelProps) {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         
-        <PlaceholderModel isLanding={isLanding} onClick={onClick} />
+        <Model isLanding={isLanding} onClick={onClick} />
         
         <OrbitControls 
           enableZoom={false}
