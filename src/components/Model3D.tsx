@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center, Environment } from "@react-three/drei"; // Re-enabled useGLTF and added Center and Environment
@@ -73,7 +74,8 @@ export default function Model3D({ isLanding, onClick }: ModelProps) {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.8} />
         <pointLight position={[-10, -10, -10]} intensity={0.8} />
         
-        <Environment preset="sunset" intensity={2.0} />
+        {/* Removed the intensity prop from Environment component */}
+        <Environment preset="sunset" />
 
         <ModelObject isLanding={isLanding} onClick={onClick} />
         <ModelControls isLanding={isLanding} />
