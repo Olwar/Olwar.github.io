@@ -1,73 +1,48 @@
-# Welcome to your Lovable project
+# Olli Airola - Personal Portfolio
 
-## Project info
+This is the repository for my personal portfolio website, available at [olliairola.com](https://olliairola.com).
 
-**URL**: https://lovable.dev/projects/47ef5d4a-0754-4e51-bc54-76f21cb39da8
+## Editing the Code
 
-## How can I edit this code?
+You can edit this code using several methods:
 
-There are several ways of editing your application.
+**1. Local Development (Recommended):**
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/47ef5d4a-0754-4e51-bc54-76f21cb39da8) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+*   Requires Node.js & npm ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+*   Follow these steps:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone git@github.com:Olwar/olli-airola-hover.git # Or your main repo URL
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd olli-airola-hover
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server (auto-reloads on changes)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**2. Edit directly on GitHub:**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+*   Navigate to the file you want to change.
+*   Click the pencil icon (Edit this file).
+*   Make changes and commit them directly.
 
-**Use GitHub Codespaces**
+**3. Use GitHub Codespaces:**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+*   Click the "Code" button on the repository page.
+*   Go to the "Codespaces" tab.
+*   Click "New codespace" to create an online development environment.
 
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/47ef5d4a-0754-4e51-bc54-76f21cb39da8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*   **Vite:** Fast frontend build tool.
+*   **React:** JavaScript library for building user interfaces.
+*   **TypeScript:** Typed superset of JavaScript.
+*   **shadcn/ui:** Re-usable UI components.
+*   **Tailwind CSS:** Utility-first CSS framework.
