@@ -67,9 +67,9 @@ const ContactSection: React.FC = () => {
       {/* Floating profile image */}
       <div className="absolute right-0 -top-20 md:top-0 lg:right-20 xl:right-40 animate-float">
         <img 
-          src="/lovable-uploads/8ca04521-095c-4ab0-8c9a-2c4e54d163d5.png" 
-          alt="Profile" 
-          className="w-24 h-24 md:w-36 md:h-36 object-contain"
+          src="/lovable-uploads/e46df8e3-b16d-46cb-b993-a57a069db2ea.png" 
+          alt="Olli Airola" 
+          className="w-32 h-32 md:w-48 md:h-48 object-contain"
         />
       </div>
     </div>
@@ -77,4 +77,3 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
-
