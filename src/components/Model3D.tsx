@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center, Environment } from "@react-three/drei"; // Re-enabled useGLTF and added Center and Environment
@@ -30,7 +29,7 @@ function ModelObject({ isLanding, onClick }: ModelProps) {
   useFrame(() => {
     if (modelRef.current && !isLanding) {
       // Slow automatic rotation when on the main page
-      modelRef.current.rotation.y += 0.01;
+      modelRef.current.rotation.y += 0.003;
     }
   });
 
