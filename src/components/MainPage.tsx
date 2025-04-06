@@ -1,6 +1,10 @@
+
 import React from "react";
 import Model3D from "./Model3D";
 import { Separator } from "@/components/ui/separator";
+import MediaSection from "./MediaSection";
+import ServicesSection from "./ServicesSection";
+import ContactSection from "./ContactSection";
 
 const MainPage: React.FC = () => {
   return (
@@ -40,27 +44,21 @@ const MainPage: React.FC = () => {
                   </li>
                 </ul>
               </div>
-              
-              <div>
-                <h2 className="text-xl font-medium mb-2 text-gray-300">Contact</h2>
-                <div className="flex space-x-4 text-sm">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Email
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    LinkedIn
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Twitter
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    GitHub
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+        
+        <Separator className="bg-gray-800 my-16" />
+        
+        <MediaSection />
+        
+        <Separator className="bg-gray-800 my-4" />
+        
+        <ServicesSection />
+        
+        <Separator className="bg-gray-800 my-4" />
+        
+        <ContactSection />
       </div>
     </div>
   );
