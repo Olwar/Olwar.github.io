@@ -7,7 +7,7 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   return (
     <div className="fixed inset-0 bg-[#a8effb] flex items-center justify-center px-4 md:px-0">
-      <div className="text-center font-['Comic_Sans_MS',_cursive] max-w-xs sm:max-w-sm md:max-w-xl mx-auto p-4 md:p-8">
+      <div className="text-center comic-font max-w-xs sm:max-w-sm md:max-w-xl mx-auto p-4 md:p-8">
         <div className="text-[#ff00ff] animate-pulse mb-4">* * * * * * * *</div>
         <h1 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-[#ff6600] drop-shadow-[2px_2px_0px_#000000] md:drop-shadow-[4px_4px_0px_#000000]">OLLI AIROLA</h1>
         
@@ -28,7 +28,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="mt-4 md:mt-6 text-[#ff6600] animate-pulse">* * * * * * * *</div>
         
         <div className="fixed bottom-2 md:bottom-4 left-0 right-0 text-center text-xs md:text-sm text-[#ff6600]">
-          <span className="mr-2">©1997</span>
+          <span className="mr-2">©1993</span>
           <span className="animate-pulse inline-block">⚡</span>
           <span className="ml-2">BEST VIEWED WITH NETSCAPE</span>
         </div>

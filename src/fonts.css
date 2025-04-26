@@ -1,0 +1,12 @@
+/* Better alternatives to Comic Sans MS that maintain the playful aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Patrick+Hand&family=Bubblegum+Sans&display=swap');
+
+/* Define our font family with fallbacks */
+:root {
+  --comic-font: 'Comic Sans MS', 'Bubblegum Sans', 'Patrick Hand', 'Architects Daughter', cursive;
+}
+
+/* Apply the comic font globally */
+.comic-font {
+  font-family: 'Comic Sans MS', 'Bubblegum Sans', 'Patrick Hand', 'Architects Daughter', cursive !important;
+} 
