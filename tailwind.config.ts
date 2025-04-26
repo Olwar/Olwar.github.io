@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -110,6 +109,32 @@ export default {
 						transform: 'translateY(0)',
 					},
 				},
+				'marquee': {
+					'0%': {
+						transform: 'translateX(0)',
+					},
+					'100%': {
+						transform: 'translateX(-50%)',
+					},
+				},
+				'fadeInOut': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'translateY(10px)' 
+					},
+					'20%': { 
+						opacity: '1', 
+						transform: 'translateY(0)' 
+					},
+					'80%': { 
+						opacity: '1', 
+						transform: 'translateY(0)' 
+					},
+					'100%': { 
+						opacity: '0', 
+						transform: 'translateY(-10px)' 
+					}
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -118,6 +143,8 @@ export default {
 				'rotate-slow': 'rotate-slow 15s linear infinite',
 				'slide-left': 'slide-left 1s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'marquee': 'marquee 20s linear infinite',
+				'fadeInOut': 'fadeInOut 2s ease-in-out forwards'
 			}
 		}
 	},

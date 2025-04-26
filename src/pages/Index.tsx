@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import LandingPage from "../components/LandingPage";
 import MainPage from "../components/MainPage";
@@ -11,7 +10,7 @@ const Index: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#a8effb]">
       {!showMainPage ? (
         <LandingPage onEnter={handleEnter} />
       ) : (
