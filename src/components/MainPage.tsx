@@ -30,7 +30,7 @@ const MainPage = () => {
         <div className="text-center mb-6 md:mb-10">
           <div className="overflow-hidden border-2 border-[#ff00ff] bg-white p-1 md:p-2 mb-4 md:mb-6">
             <div className="relative whitespace-nowrap inline-block text-base md:text-2xl font-bold text-[#ff6600] animate-marquee">
-              ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️
+              ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1997 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1997 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1997 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1997 ⭐️
             </div>
           </div>
           
@@ -113,7 +113,7 @@ const MainPage = () => {
         <ContactSection />
         
         <div className="mt-8 md:mt-12 text-center text-xs md:text-sm text-[#ff6600]">
-          <p className="mb-2">©1993 Olli Airola's Homepage - All Rights Reserved</p>
+          <p className="mb-2">©1997 Olli Airola's Homepage - All Rights Reserved</p>
           <p>This site is best viewed in 800x600 resolution with Netscape Navigator</p>
           <div className="mt-2 flex flex-wrap justify-center items-center gap-2 md:gap-4">
             <div className="border-2 border-[#ff6600] bg-[#ffff99] px-2 md:px-3 py-1 animate-pulse">

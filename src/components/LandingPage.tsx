@@ -28,7 +28,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         <div className="mt-4 md:mt-6 text-[#ff6600] animate-pulse">* * * * * * * *</div>
         
         <div className="fixed bottom-2 md:bottom-4 left-0 right-0 text-center text-xs md:text-sm text-[#ff6600]">
-          <span className="mr-2">©1993</span>
+          <span className="mr-2">©1997</span>
           <span className="animate-pulse inline-block">⚡</span>
           <span className="ml-2">BEST VIEWED WITH NETSCAPE</span>
         </div>
