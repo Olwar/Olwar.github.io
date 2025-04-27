@@ -7,20 +7,43 @@ const MainPage = () => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem('hasVisited');
+    // Use CountAPI to track visitors across all users
+    const countKey = "olli-airola-site"; // Unique key for your site
+    const countUrl = `https://api.countapi.xyz/hit/olli-airola.com/${countKey}`;
     
-    // Get current count from localStorage or use default
-    let count = parseInt(localStorage.getItem('visitorCount') || '0');
-    
-    // If this is a new visitor, increment the count
-    if (!hasVisited) {
-      count += 1;
-      localStorage.setItem('hasVisited', 'true');
-      localStorage.setItem('visitorCount', count.toString());
+    // Only count the visit if we haven't counted this session
+    if (!sessionStorage.getItem('counted')) {
+      fetch(countUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data && data.value) {
+            setVisitorCount(data.value);
+            sessionStorage.setItem('counted', 'true');
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching visitor count:", error);
+          // Fallback to localStorage if API fails
+          const fallbackCount = parseInt(localStorage.getItem('visitorCount') || '0') + 1;
+          setVisitorCount(fallbackCount);
+          localStorage.setItem('visitorCount', fallbackCount.toString());
+        });
+    } else {
+      // Just get the count without incrementing
+      fetch(countUrl.replace('/hit/', '/get/'))
+        .then(response => response.json())
+        .then(data => {
+          if (data && data.value) {
+            setVisitorCount(data.value);
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching visitor count:", error);
+          // Fallback to localStorage if API fails
+          const fallbackCount = parseInt(localStorage.getItem('visitorCount') || '0');
+          setVisitorCount(fallbackCount);
+        });
     }
-    
-    setVisitorCount(count);
   }, []);
 
   return (
