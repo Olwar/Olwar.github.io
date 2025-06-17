@@ -36,6 +36,18 @@ const ContactSection = () => {
       value: "Connect professionally",
       link: "https://www.linkedin.com/in/olli-airola/",
     },
+    {
+      id: 3,
+      label: "AI Newsletter",
+      value: "Subscribe to my AI insights",
+      link: "https://tekoalyolli.substack.com/",
+    },
+    {
+      id: 4,
+      label: "GitHub",
+      value: "View my open source projects",
+      link: "https://github.com/Olwar",
+    },
   ];
 
   return (
@@ -116,6 +128,19 @@ const ContactSection = () => {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="elegant-card p-8">
+            <h3 className="font-serif text-xl font-medium text-charcoal mb-4">
+              Let's Collaborate
+            </h3>
+            <p className="text-charcoal/70 leading-relaxed">
+              Whether you're interested in AI development, psychology research,
+              or exploring the intersection of technology and human behavior,
+              I'd love to hear from you.
+            </p>
           </div>
         </div>
       </div>
