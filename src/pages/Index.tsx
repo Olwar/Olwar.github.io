@@ -1,21 +1,10 @@
-import React, { useState } from "react";
-import LandingPage from "../components/LandingPage";
+import React from "react";
 import MainPage from "../components/MainPage";
 
 const Index: React.FC = () => {
-  const [showMainPage, setShowMainPage] = useState(false);
-
-  const handleEnter = () => {
-    setShowMainPage(true);
-  };
-
   return (
-    <div className="min-h-screen bg-[#a8effb]">
-      {!showMainPage ? (
-        <LandingPage onEnter={handleEnter} />
-      ) : (
-        <MainPage />
-      )}
+    <div className="min-h-screen bg-cream">
+      <MainPage />
     </div>
   );
 };

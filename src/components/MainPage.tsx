@@ -1,152 +1,197 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 
 const MainPage = () => {
-  const [visitorCount, setVisitorCount] = useState(0);
-
   useEffect(() => {
-    // Use CountAPI to track visitors across all users
-    const countKey = "olli-airola-site"; // Unique key for your site
-    const countUrl = `https://api.countapi.xyz/hit/olli-airola.com/${countKey}`;
-    
-    // Only count the visit if we haven't counted this session
-    if (!sessionStorage.getItem('counted')) {
-      fetch(countUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data && data.value) {
-            setVisitorCount(data.value);
-            sessionStorage.setItem('counted', 'true');
-          }
-        })
-        .catch(error => {
-          console.error("Error fetching visitor count:", error);
-          // Fallback to localStorage if API fails
-          const fallbackCount = parseInt(localStorage.getItem('visitorCount') || '0') + 1;
-          setVisitorCount(fallbackCount);
-          localStorage.setItem('visitorCount', fallbackCount.toString());
-        });
-    } else {
-      // Just get the count without incrementing
-      fetch(countUrl.replace('/hit/', '/get/'))
-        .then(response => response.json())
-        .then(data => {
-          if (data && data.value) {
-            setVisitorCount(data.value);
-          }
-        })
-        .catch(error => {
-          console.error("Error fetching visitor count:", error);
-          // Fallback to localStorage if API fails
-          const fallbackCount = parseInt(localStorage.getItem('visitorCount') || '0');
-          setVisitorCount(fallbackCount);
-        });
-    }
+    // Sophisticated scroll reveal implementation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all scroll-reveal elements
+    const scrollElements = document.querySelectorAll(".scroll-reveal");
+    scrollElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#a8effb] py-8 md:py-16 px-3 md:px-12 comic-font">
-      <div className="max-w-6xl mx-auto">
-        {/* Retro header with scrolling text */}
-        <div className="text-center mb-6 md:mb-10">
-          <div className="overflow-hidden border-2 border-[#ff00ff] bg-white p-1 md:p-2 mb-4 md:mb-6">
-            <div className="relative whitespace-nowrap inline-block text-base md:text-2xl font-bold text-[#ff6600] animate-marquee">
-              ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️ WELCOME TO OLLI AIROLA'S HOME PAGE ⭐️ SERVING UP HOT TECH SINCE 1993 ⭐️
-            </div>
-          </div>
-          
-          <h1 className="text-3xl md:text-6xl font-bold tracking-tight text-[#ff6600] drop-shadow-[2px_2px_0px_#000000] md:drop-shadow-[4px_4px_0px_#000000]">
-            OLLI AIROLA
-          </h1>
-          <div className="mt-2 mb-4 text-base md:text-xl text-[#9c27b0] bg-white inline-block px-3 md:px-6 py-1 border-2 border-[#ff00ff] transform rotate-[-1deg]">
-            Software Developer | Psychologist
-          </div>
-        </div>
-        
-        {/* Main content in a "menu" style layout - responsive grid for mobile */}
-        <section className="bg-white border-4 border-dashed border-[#ff00ff] p-3 md:p-6 mb-8 md:mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            <div className="md:col-span-1">
-              <div className="mb-4">
-                <img 
-                  src="/polaroid.png"
-                  alt="Olli Airola" 
-                  className="w-full max-w-[250px] mx-auto md:max-w-none border-4 border-white shadow-lg transform rotate-[-3deg]"
-                />
-              </div>
-            </div>
-            <div className="md:col-span-2">
-              <div className="bg-[#ffff99] p-3 md:p-4 border-2 border-[#ff6600]">
-                <h2 className="text-lg md:text-xl font-bold mb-2 text-[#9c27b0] underline underline-offset-4">About</h2>
-                <p className="text-black leading-relaxed text-sm md:text-base">
-                  Combining AI and psychology to deepen our understanding of how artificial intelligence can 
-                  enhance our lives. My approach to AI is based on both technical expertise and an understanding of how it affects 
-                  human psychology.
+    <main className="min-h-screen bg-cream">
+      <div className="elegant-container">
+        {/* Hero Section */}
+        <section className="section-spacing">
+          <div className="text-center space-y-8 animate-fade-in-up">
+            <div className="space-y-6">
+              <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium text-charcoal tracking-tight title-width mx-auto">
+                Olli Airola
+              </h1>
+              <div className="space-y-3">
+                <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
+                  Software Developer
                 </p>
-              </div>
-              
-              <div className="mt-4 md:mt-6 bg-[#ccffcc] p-3 md:p-4 border-2 border-[#ff6600]">
-                <h2 className="text-lg md:text-xl font-bold mb-2 text-[#9c27b0] underline underline-offset-4">Experience</h2>
-                <ul className="text-black space-y-2 md:space-y-3 list-disc pl-5 text-sm md:text-base">
-                  <li>
-                    <h3 className="block text-[#ff6600] text-sm md:text-base font-bold">CTO</h3>
-                    <span className="block text-xs md:text-sm">Ujonrohkaisija — Apr 2025-Present</span>
-                  </li>
-                  <li>
-                    <h3 className="block text-[#ff6600] text-sm md:text-base font-bold">Full-stack Developer</h3>
-                    <span className="block text-xs md:text-sm">Illusian Founder Office — Oct 2024-Present</span>
-                  </li>
-                  <li>
-                    <h3 className="block text-[#ff6600] text-sm md:text-base font-bold">AI Software Developer | Psychologist</h3>
-                    <span className="block text-xs md:text-sm">Self-employed — Oct 2023-Present</span>
-                  </li>
-                  <li>
-                    <h3 className="block text-[#ff6600] text-sm md:text-base font-bold">Data/AI Consultant</h3>
-                    <span className="block text-xs md:text-sm">Codento Oy — Apr 2023-Oct 2023</span>
-                  </li>
-                  <li>
-                    <h3 className="block text-[#ff6600] text-sm md:text-base font-bold">Psychologist</h3>
-                    <span className="block text-xs md:text-sm">Various Organizations — Jan 2020-Jun 2023</span>
-                    <span className="block text-xs md:text-sm italic">Provided therapy and assessments with 4.48/5 client feedback</span>
-                  </li>
-                </ul>
+                <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
+                  Psychologist
+                </p>
               </div>
             </div>
           </div>
         </section>
-        
-        <div className="text-center">
-          <div className="text-[#ff00ff] text-2xl md:text-4xl my-4 md:my-6">✧✦✧✦✧✦✧✦✧✦✧✦✧</div>
-        </div>
-        
-        <MediaSection />
-        
-        <div className="text-center">
-          <div className="text-[#ff00ff] text-2xl md:text-4xl my-4 md:my-6">✧✦✧✦✧✦✧✦✧✦✧✦✧</div>
-        </div>
-        
-        <ProjectsSection />
-        
-        <div className="text-center">
-          <div className="text-[#ff00ff] text-2xl md:text-4xl my-4 md:my-6">✧✦✧✦✧✦✧✦✧✦✧✦✧</div>
-        </div>
-        
-        <ContactSection />
-        
-        <div className="mt-8 md:mt-12 text-center text-xs md:text-sm text-[#ff6600]">
-          <p className="mb-2">©1993 Olli Airola's Homepage - All Rights Reserved</p>
-          <p>This site is best viewed in 800x600 resolution with Netscape Navigator</p>
-          <div className="mt-2 flex flex-wrap justify-center items-center gap-2 md:gap-4">
-            <div className="border-2 border-[#ff6600] bg-[#ffff99] px-2 md:px-3 py-1 animate-pulse">
-              <span className="font-bold">UNDER CONSTRUCTION</span> 🚧
+
+        {/* About Section */}
+        <section className="content-section scroll-reveal">
+          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
+            <div className="space-y-8">
+              <div className="space-y-8">
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal">
+                  About
+                </h2>
+                <div className="space-y-6 content-width">
+                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
+                    Combining artificial intelligence and psychology to deepen
+                    our understanding of how technology can enhance human
+                    potential.
+                  </p>
+                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
+                    My approach to AI development is grounded in both technical
+                    expertise and a deep understanding of human psychology,
+                    ensuring technology serves humanity meaningfully.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="border-2 border-[#ff6600] bg-[#ccffff] px-2 md:px-3 py-1">
-              <span className="font-bold text-[#9c27b0]">VISITORS:</span> <span className="text-[#ff6600] font-mono">{visitorCount}</span>
+
+            <div className="space-y-8 scroll-reveal">
+              <div className="w-full max-w-md lg:max-w-lg mx-auto lg:mx-0 lg:ml-auto">
+                <img
+                  src="/polaroid.png"
+                  alt="Olli Airola"
+                  className="w-full h-auto rounded-lg shadow-elegant transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="content-section scroll-reveal">
+          <div className="space-y-12">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal text-center">
+              Experience
+            </h2>
+
+            <div className="space-y-8 max-w-4xl mx-auto">
+              <div className="space-y-8">
+                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                      Chief Technology Officer
+                    </h3>
+                    <p className="text-lg text-navy font-medium">
+                      Ujonrohkaisija
+                    </p>
+                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                      Apr 2025 — Present
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                      Full-stack Developer
+                    </h3>
+                    <p className="text-lg text-navy font-medium">
+                      Illusian Founder Office
+                    </p>
+                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                      Oct 2024 — Present
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                      AI Software Developer & Psychologist
+                    </h3>
+                    <p className="text-lg text-navy font-medium">
+                      Self-employed
+                    </p>
+                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                      Oct 2023 — Present
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                      Data & AI Consultant
+                    </h3>
+                    <p className="text-lg text-navy font-medium">Codento Oy</p>
+                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                      Apr 2023 — Oct 2023
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                      Psychologist
+                    </h3>
+                    <p className="text-lg text-navy font-medium">
+                      Various Organizations
+                    </p>
+                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                      Jan 2020 — Jun 2023
+                    </p>
+                    <p className="text-sm text-charcoal/60 italic">
+                      4.48/5 client satisfaction rating
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tighter spacing for content flow */}
+        <div className="scroll-reveal">
+          <MediaSection />
         </div>
+
+        <div className="scroll-reveal">
+          <ProjectsSection />
+        </div>
+
+        <div className="scroll-reveal">
+          <ContactSection />
+        </div>
+
+        {/* Sophisticated Footer */}
+        <footer className="py-12 text-center border-t border-border/50 scroll-reveal">
+          <div className="space-y-4">
+            <p className="text-sm text-charcoal/40 font-mono tracking-wider">
+              © 2024 Olli Airola. All rights reserved.
+            </p>
+            <p className="text-xs text-charcoal/30 font-mono">
+              Crafted with intention and attention to detail.
+            </p>
+          </div>
+        </footer>
       </div>
     </main>
   );

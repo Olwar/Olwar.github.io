@@ -1,110 +1,126 @@
-import React from "react";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check, Copy } from "lucide-react";
 
-const contactLinks = [
-  {
-    id: 1,
-    name: "Email",
-    link: "mailto:olli@olliairola.com",
-    description: "Click to copy my email: olli@olliairola.com",
-    isEmail: true
-  },
-  {
-    id: 2,
-    name: "LinkedIn",
-    link: "https://linkedin.com/in/tekoalyolli",
-    description: "Connect with me professionally on LinkedIn"
-  },
-  {
-    id: 3,
-    name: "AI Newsletter",
-    link: "https://tekoalyolli.substack.com/",
-    description: "Subscribe to my free AI newsletter to stay updated"
-  },
-  {
-    id: 4,
-    name: "GitHub",
-    link: "https://github.com/Olwar",
-    description: "Check out my open source projects and code repositories"
-  }
-];
+interface ContactMethod {
+  id: number;
+  label: string;
+  value: string;
+  action?: () => void;
+  link?: string;
+}
 
 const ContactSection = () => {
-  const copyEmail = (e) => {
-    if (e.currentTarget.dataset.isEmail === "true") {
-      e.preventDefault();
-      const email = "olli@olliairola.com";
-      navigator.clipboard.writeText(email);
-      
-      // Create notification element
-      const notification = document.createElement('div');
-      notification.innerText = 'Email copied!';
-      notification.style.position = 'fixed';
-      notification.style.left = `${e.clientX}px`;
-      notification.style.top = `${e.clientY - 30}px`;
-      notification.style.background = '#ff00ff';
-      notification.style.color = 'white';
-      notification.style.padding = '2px 8px';
-      notification.style.borderRadius = '4px';
-      notification.style.fontSize = '14px';
-      notification.style.zIndex = '50';
-      notification.style.pointerEvents = 'none';
-      
-      // Add Tailwind classes - we're adding it manually since this is a dynamic element
-      notification.classList.add('animate-fadeInOut');
-      
-      // Add the notification to the document
-      document.body.appendChild(notification);
-      
-      // Remove after animation completes
-      setTimeout(() => {
-        document.body.removeChild(notification);
-      }, 2000);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
     }
   };
 
+  const contactMethods: ContactMethod[] = [
+    {
+      id: 1,
+      label: "Email",
+      value: "olli.airola@gmail.com",
+      action: () => copyToClipboard("olli.airola@gmail.com"),
+    },
+    {
+      id: 2,
+      label: "LinkedIn",
+      value: "Connect professionally",
+      link: "https://www.linkedin.com/in/olli-airola/",
+    },
+  ];
+
   return (
-    <section className="py-6 md:py-12 relative">
-      <div className="bg-white border-4 border-double border-[#ff00ff] p-3 md:p-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8 text-[#ff6600] underline decoration-wavy decoration-[#9c27b0] underline-offset-4 md:underline-offset-8">
-          <span className="inline-block animate-pulse">☎</span> CONTACT ME <span className="inline-block animate-pulse">☎</span>
-        </h2>
-        
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-          {contactLinks.map((contact) => (
-            <HoverCard key={contact.id}>
-              <HoverCardTrigger asChild>
-                <a 
-                  href={contact.link}
-                  className="border-2 border-[#ff6600] bg-[#ffff99] p-1 md:p-2 text-[#9c27b0] hover:bg-[#ffff00] transition-colors text-base md:text-lg font-bold block text-center relative active:scale-95 touch-manipulation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={copyEmail}
-                  data-is-email={contact.isEmail}
-                >
-                  <div className="border-2 border-dashed border-[#9c27b0] p-2 md:p-4">
-                    {contact.name}
-                  </div>
-                </a>
-              </HoverCardTrigger>
-              <HoverCardContent align="center" className="w-[200px] md:w-auto bg-[#a8effb] border-[#ff00ff] text-[#9c27b0] font-bold text-sm md:text-base">
-                {contact.description}
-              </HoverCardContent>
-            </HoverCard>
-          ))}
+    <section className="py-8 md:py-12 lg:py-14">
+      <div className="space-y-16">
+        <div className="text-center">
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal">
+            Get in Touch
+          </h2>
         </div>
-        
-        <div className="mt-6 md:mt-10 flex justify-center items-center">
-          <div className="border-2 border-[#ff6600] bg-[#ffccff] p-3 md:p-4 shadow-[3px_3px_0px_#000000] md:shadow-[4px_4px_0px_#000000] max-w-md text-center">
-            <h3 className="text-base md:text-lg text-[#9c27b0] font-bold mb-2">SIGN MY GUESTBOOK:</h3>
-            <div className="inline-block animate-bounce mt-1 md:mt-2 text-[#ff6600]">
-              ⬇️ Coming Soon! ⬇️
-            </div>
+
+        <div className="max-w-2xl mx-auto">
+          <div className="grid gap-6">
+            {contactMethods.map((method) => (
+              <div key={method.id} className="group">
+                {method.link ? (
+                  <a
+                    href={method.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div className="elegant-card p-6 transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="space-y-1">
+                          <h3 className="font-medium text-charcoal group-hover:text-navy transition-colors duration-300">
+                            {method.label}
+                          </h3>
+                          <p className="text-sm text-charcoal/60">
+                            {method.value}
+                          </p>
+                        </div>
+                        <span className="text-sm text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
+                          Visit →
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    onClick={method.action}
+                    className="w-full p-0 h-auto hover:bg-transparent group"
+                  >
+                    <div className="elegant-card p-6 w-full transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="space-y-1 text-left">
+                          <h3 className="font-medium text-charcoal group-hover:text-navy transition-colors duration-300">
+                            {method.label}
+                          </h3>
+                          <p className="text-sm text-charcoal/60">
+                            {method.value}
+                          </p>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          {copiedEmail ? (
+                            <>
+                              <Check size={16} className="text-green-600" />
+                              <span className="text-sm text-green-600 font-medium tracking-wide">
+                                Copied!
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy
+                                size={16}
+                                className="text-bronze group-hover:text-navy transition-colors duration-300"
+                              />
+                              <span className="text-sm text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
+                                Copy
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Button>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default ContactSection;
