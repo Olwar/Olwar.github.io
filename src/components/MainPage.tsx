@@ -84,18 +84,19 @@ const MainPage = () => {
           </div>
         </section>
 
-        {/* Experience Section */}
+        {/* Experience Section - Centered Design */}
         <section className="content-section scroll-reveal">
-          <div className="space-y-12">
+          <div className="space-y-16">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal text-center">
               Experience
             </h2>
 
-            <div className="space-y-8 max-w-4xl mx-auto">
-              <div className="space-y-8">
-                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+            <div className="max-w-3xl mx-auto">
+              <div className="space-y-12 md:space-y-16">
+                <div className="text-center scroll-reveal group">
+                  <div className="space-y-3">
+                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
                       Chief Technology Officer
                     </h3>
                     <p className="text-lg text-navy font-medium">
@@ -107,9 +108,10 @@ const MainPage = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                <div className="text-center scroll-reveal group">
+                  <div className="space-y-3">
+                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
                       Full-stack Developer
                     </h3>
                     <p className="text-lg text-navy font-medium">
@@ -121,9 +123,10 @@ const MainPage = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                <div className="text-center scroll-reveal group">
+                  <div className="space-y-3">
+                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
                       AI Software Developer & Psychologist
                     </h3>
                     <p className="text-lg text-navy font-medium">
@@ -135,9 +138,10 @@ const MainPage = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                <div className="text-center scroll-reveal group">
+                  <div className="space-y-3">
+                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
                       Data & AI Consultant
                     </h3>
                     <p className="text-lg text-navy font-medium">Codento Oy</p>
@@ -147,9 +151,10 @@ const MainPage = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-bronze pl-8 space-y-4 scroll-reveal transition-all duration-500 hover:border-l-4 hover:pl-6">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-charcoal">
+                <div className="text-center scroll-reveal group">
+                  <div className="space-y-3">
+                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
                       Psychologist
                     </h3>
                     <p className="text-lg text-navy font-medium">
