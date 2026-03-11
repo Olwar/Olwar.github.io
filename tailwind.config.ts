@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { tailwindPreset } from "./style-guide";
 
 export default {
   darkMode: ["class"],
@@ -18,42 +19,11 @@ export default {
       },
     },
     extend: {
-      // Sophisticated Color Palette
+      // CyberRelic theme colors from style-guide
       colors: {
-        // Base colors
-        cream: {
-          50: "#FEFCF8",
-          100: "#FDF9F2",
-          200: "#F9F0E3",
-          300: "#F5E7D4",
-          DEFAULT: "#FEFCF8",
-        },
-        charcoal: {
-          50: "#6B7280",
-          100: "#4B5563",
-          200: "#374151",
-          300: "#1F2937",
-          400: "#111827",
-          DEFAULT: "#1A1A1A",
-        },
-        navy: {
-          50: "#E0E7FF",
-          100: "#C7D2FE",
-          200: "#A5B4FC",
-          300: "#8B5CF6",
-          400: "#7C3AED",
-          DEFAULT: "#0A1628",
-        },
-        bronze: {
-          50: "#FEF3C7",
-          100: "#FDE68A",
-          200: "#F59E0B",
-          300: "#D97706",
-          400: "#B45309",
-          DEFAULT: "#B8860B",
-        },
-
-        // ShadCN compatibility (updated for light theme)
+        ...tailwindPreset.theme.extend.colors,
+        
+        // ShadCN compatibility (keeping for components)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -89,29 +59,28 @@ export default {
         },
       },
 
-      // Typography System
+      // Typography System from style-guide
       fontFamily: {
+        ...tailwindPreset.theme.extend.fontFamily,
         serif: ["var(--font-serif)"],
-        sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
       },
 
-      // Sophisticated spacing scale
+      // Spacing and radius from style-guide
       spacing: {
         "18": "4.5rem",
         "88": "22rem",
         "128": "32rem",
       },
 
-      // Enhanced border radius for sophistication
       borderRadius: {
+        ...tailwindPreset.theme.extend.borderRadius,
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        "4xl": "2rem",
       },
 
-      // Sophisticated animation system
+      // CyberRelic animations
       keyframes: {
         // Essential ShadCN animations
         "accordion-down": {
@@ -123,7 +92,46 @@ export default {
           to: { height: "0" },
         },
 
-        // Sophisticated entrance animations
+        // CRT/VHS effects
+        "crt-flicker": {
+          "0%, 100%": { opacity: "0.98" },
+          "10%": { opacity: "0.95" },
+          "20%": { opacity: "0.99" },
+          "30%": { opacity: "0.96" },
+          "40%": { opacity: "0.98" },
+          "50%": { opacity: "0.94" },
+          "60%": { opacity: "0.99" },
+          "70%": { opacity: "0.97" },
+          "80%": { opacity: "0.95" },
+          "90%": { opacity: "0.99" },
+        },
+        
+        "rain-scroll": {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "0 300px" },
+        },
+        
+        "neon-glitch": {
+          "0%": { transform: "translate(0,0)", filter: "hue-rotate(0deg)" },
+          "10%": { transform: "translate(-1px, 1px)" },
+          "20%": { transform: "translate(1px, -1px)" },
+          "30%": { transform: "translate(-2px, 0)" },
+          "40%": { transform: "translate(2px, 1px)" },
+          "50%": { transform: "translate(0, -2px)", filter: "hue-rotate(10deg)" },
+          "60%": { transform: "translate(1px, 0)" },
+          "70%": { transform: "translate(-1px, 1px)" },
+          "80%": { transform: "translate(2px, -1px)" },
+          "90%": { transform: "translate(-2px, 0)" },
+          "100%": { transform: "translate(0,0)", filter: "hue-rotate(0deg)" },
+        },
+
+        tremble: {
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(0.5px)" },
+          "100%": { transform: "translateX(0)" },
+        },
+
+        // Entrance animations
         "fade-in-up": {
           "0%": {
             opacity: "0",
@@ -135,7 +143,6 @@ export default {
           },
         },
 
-        // Subtle reveal with enhanced easing
         reveal: {
           "0%": {
             opacity: "0",
@@ -147,7 +154,6 @@ export default {
           },
         },
 
-        // Elegant loading animation
         pulse: {
           "0%, 100%": {
             opacity: "1",
@@ -157,7 +163,6 @@ export default {
           },
         },
 
-        // Professional shimmer effect
         shimmer: {
           "0%": {
             transform: "translateX(-100%)",
@@ -165,6 +170,23 @@ export default {
           "100%": {
             transform: "translateX(100%)",
           },
+        },
+        
+        // Hand animations
+        "hand-float": {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "33%": { transform: "translateY(-10px) translateX(5px)" },
+          "66%": { transform: "translateY(5px) translateX(-3px)" },
+        },
+        
+        "hand-entry-right": {
+          from: { transform: "translateX(100%) translateY(-100%) rotate(-15deg)" },
+          to: { transform: "translateX(0) translateY(0) rotate(0deg)" },
+        },
+        
+        "hand-entry-left": {
+          from: { transform: "translateX(-100%) translateY(100%) rotate(15deg)" },
+          to: { transform: "translateX(0) translateY(0) rotate(0deg)" },
         },
       },
 
@@ -175,13 +197,18 @@ export default {
         reveal: "reveal 1s cubic-bezier(0.4, 0, 0.2, 1)",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite",
         shimmer: "shimmer 2s linear infinite",
+        "crt-flicker": "crt-flicker 3.5s ease-in-out infinite",
+        "rain-scroll": "rain-scroll 8s linear infinite",
+        "neon-glitch": "neon-glitch 700ms steps(12, end) infinite",
+        tremble: "tremble 220ms linear infinite",
+        "hand-float": "hand-float 6s ease-in-out infinite",
+        "hand-entry-right": "hand-entry-right 1.2s cubic-bezier(0.16,1,0.3,1)",
+        "hand-entry-left": "hand-entry-left 1.2s cubic-bezier(0.16,1,0.3,1)",
       },
 
-      // Enhanced shadows for depth and sophistication
+      // CyberRelic shadows from style-guide
       boxShadow: {
-        soft: "0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)",
-        medium:
-          "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        ...tailwindPreset.theme.extend.boxShadow,
         elegant: "0 10px 40px -10px rgba(0, 0, 0, 0.1)",
         sophisticated: "0 20px 60px -12px rgba(0, 0, 0, 0.25)",
       },
@@ -195,6 +222,39 @@ export default {
       transitionTimingFunction: {
         elegant: "cubic-bezier(0.4, 0, 0.2, 1)",
         sophisticated: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      },
+      
+      // Background patterns and effects
+      backgroundImage: {
+        'crt-scanlines': `repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.035) 0px,
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px,
+          transparent 3px
+        )`,
+        'vhs-static': `repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.02) 0,
+          rgba(255,255,255,0.02) 2px,
+          transparent 2px,
+          transparent 4px
+        )`,
+        'digital-rain': `repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 2px,
+          rgba(45,226,230,0.05) 3px,
+          transparent 4px
+        )`,
+        'vignette': `radial-gradient(
+          120% 120% at 50% 50%,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0.25) 55%,
+          rgba(0,0,0,0.6) 100%
+        )`,
+        'gradient-brand': 'linear-gradient(135deg, #ff2a6d 0%, #a64dff 45%, #5a6cff 100%)',
+        'gradient-oil': 'linear-gradient(120deg, rgba(45,226,230,0.15), rgba(255,42,109,0.15))',
       },
     },
   },
