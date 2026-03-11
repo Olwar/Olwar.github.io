@@ -44,13 +44,11 @@ const mediaItems: MediaItem[] = [
 
 const MediaSection = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 relative">
+    <section className="py-8 md:py-12 lg:py-14">
       <div className="space-y-16">
         <div className="text-center">
-          <h2 className="font-sans text-3xl md:text-4xl font-bold">
-            <span className="bg-gradient-to-r from-pink via-magenta to-violet bg-clip-text text-transparent">
-              Media Appearances
-            </span>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal">
+            Media Appearances
           </h2>
         </div>
 
@@ -68,34 +66,31 @@ const MediaSection = () => {
                     rel="noopener noreferrer"
                     className="group block h-full"
                   >
-                    <div className="cyber-card p-6 h-full transition-all duration-500 hover:scale-105 hover:border-pink/50 relative overflow-hidden">
-                      {/* Neon glow on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-magenta/0 via-violet/10 to-magenta/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      <div className="space-y-4 relative z-10">
+                    <div className="elegant-card p-6 h-full transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
+                      <div className="space-y-4">
                         <AspectRatio
                           ratio={4 / 3}
-                          className="bg-surface/50 rounded-lg overflow-hidden border border-violet/20 group-hover:border-magenta/40 transition-all duration-300"
+                          className="bg-muted/20 rounded-md overflow-hidden border border-border"
                         >
                           <img
                             src={item.image}
                             alt={`${item.source} logo`}
-                            className="w-full h-full object-contain p-4 transition-all duration-500 group-hover:scale-110 filter group-hover:brightness-110"
+                            className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                           />
                         </AspectRatio>
 
                         <div className="space-y-2">
-                          <h3 className="font-sans text-lg font-bold text-text group-hover:text-pink transition-colors duration-300 leading-tight">
+                          <h3 className="font-serif text-lg font-medium text-charcoal group-hover:text-navy transition-colors duration-300 leading-tight">
                             {item.title}
                           </h3>
-                          <p className="text-sm text-violet font-semibold">
+                          <p className="text-sm text-charcoal/60 font-medium">
                             {item.source}
                           </p>
                         </div>
 
                         <div className="pt-2">
-                          <span className="text-sm font-medium text-teal group-hover:text-pink transition-all duration-300 tracking-wide inline-flex items-center">
-                            <span className="group-hover:text-glow-magenta">Read article →</span>
+                          <span className="text-sm font-medium text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
+                            Read article →
                           </span>
                         </div>
                       </div>
@@ -106,8 +101,8 @@ const MediaSection = () => {
             </CarouselContent>
 
             <div className="flex justify-center mt-8 gap-4">
-              <CarouselPrevious className="static bg-surface/60 backdrop-blur-sm hover:bg-surface border-violet/30 hover:border-magenta/50 text-text hover:text-pink h-10 w-10 transition-all duration-300 hover:shadow-neon-magenta" />
-              <CarouselNext className="static bg-surface/60 backdrop-blur-sm hover:bg-surface border-violet/30 hover:border-magenta/50 text-text hover:text-pink h-10 w-10 transition-all duration-300 hover:shadow-neon-magenta" />
+              <CarouselPrevious className="static bg-card hover:bg-muted border-border text-charcoal hover:text-navy h-10 w-10" />
+              <CarouselNext className="static bg-card hover:bg-muted border-border text-charcoal hover:text-navy h-10 w-10" />
             </div>
           </Carousel>
         </div>

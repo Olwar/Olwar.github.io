@@ -6,36 +6,36 @@
 
 @layer base {
   :root {
-    /* CyberRelic Theme - Dark Cyberpunk Colors */
-    --background: 240 30% 3%; /* Deep void #07070d */
-    --foreground: 230 50% 95%; /* Text primary #e6ecff */
+    /* Sophisticated Light Theme Color System */
+    --background: 36 7% 98%; /* Rich cream #FEFCF8 */
+    --foreground: 0 0% 10%; /* Deep charcoal #1A1A1A */
 
-    --card: 235 25% 10%; /* Surface #121520 */
-    --card-foreground: 230 50% 95%; /* Text primary */
+    --card: 36 7% 98%; /* Cream */
+    --card-foreground: 0 0% 10%; /* Charcoal */
 
-    --popover: 235 25% 10%;
-    --popover-foreground: 230 50% 95%;
+    --popover: 36 7% 98%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 337 100% 58%; /* Neon Magenta #ff2a6d */
-    --primary-foreground: 240 30% 3%;
+    --primary: 0 0% 10%; /* Charcoal */
+    --primary-foreground: 36 7% 98%; /* Cream */
 
-    --secondary: 267 100% 65%; /* Neon Violet #a64dff */
-    --secondary-foreground: 240 30% 3%;
+    --secondary: 215 100% 6%; /* Deep navy #0A1628 */
+    --secondary-foreground: 36 7% 98%;
 
-    --muted: 230 20% 25%; /* Gunmetal */
-    --muted-foreground: 230 30% 75%; /* Text secondary #a9b3d1 */
+    --muted: 215 15% 92%; /* Very light navy tint */
+    --muted-foreground: 215 10% 45%;
 
-    --accent: 181 85% 53%; /* Neon Teal #2de2e6 */
-    --accent-foreground: 240 30% 3%;
+    --accent: 41 86% 39%; /* Bronze #B8860B */
+    --accent-foreground: 36 7% 98%;
 
-    --destructive: 337 100% 58%; /* Neon Magenta */
-    --destructive-foreground: 240 30% 3%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 36 7% 98%;
 
-    --border: 230 30% 15%; /* Subtle border */
-    --input: 230 30% 15%;
-    --ring: 267 100% 65%; /* Violet ring */
+    --border: 215 15% 88%; /* Subtle border */
+    --input: 215 15% 88%;
+    --ring: 215 100% 6%; /* Navy ring */
 
-    --radius: 0.75rem; /* Cyberpunk radius */
+    --radius: 0.25rem; /* Minimal radius */
   }
 
   /* Typography and base styling */
@@ -49,99 +49,50 @@
   }
 
   body {
-    @apply bg-void text-text font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    min-height: 100vh;
   }
 
-  /* CRT/VHS overlay effects */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 9999;
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.03) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    animation: crt-flicker 3.5s ease-in-out infinite;
-  }
-
-  /* Vignette overlay */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 9998;
-    background: radial-gradient(
-      120% 120% at 50% 50%,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.25) 55%,
-      rgba(0,0,0,0.6) 100%
-    );
-  }
-
-  /* Cyberpunk scrollbar styling */
+  /* Sophisticated scrollbar styling */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(18, 21, 32, 0.5);
-    border: 1px solid rgba(166, 77, 255, 0.1);
+    background: hsl(var(--muted));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff2a6d, #a64dff);
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(166, 77, 255, 0.5);
-    transition: all 0.3s ease;
+    background: hsl(var(--muted-foreground));
+    border-radius: 3px;
+    transition: background 0.2s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #ff6ec7, #5a6cff);
-    box-shadow: 0 0 20px rgba(255, 42, 109, 0.8);
+    background: hsl(var(--accent));
   }
 
-  /* Neon selection styling */
+  /* Sophisticated selection styling */
   ::selection {
-    background: rgba(166, 77, 255, 0.4);
-    color: #ff6ec7;
-    text-shadow: 0 0 10px rgba(255, 110, 199, 0.8);
+    background: hsl(var(--accent) / 0.2);
+    color: hsl(var(--accent-foreground));
   }
 
-  /* Cyberpunk typography hierarchy */
+  /* Typography hierarchy */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-sans font-bold tracking-tight;
+    @apply font-serif font-medium tracking-tight;
     line-height: 1.2;
     text-wrap: balance;
-    background: linear-gradient(135deg, #ff2a6d, #a64dff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(166, 77, 255, 0.5);
   }
 
   h1 {
@@ -179,114 +130,70 @@
     display: none;
   }
 
-  /* Neon focus states */
+  /* Sophisticated focus states */
   :focus-visible {
-    outline: 2px solid #2de2e6;
+    outline: 2px solid hsl(var(--accent));
     outline-offset: 2px;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(45, 226, 230, 0.6);
-  }
-
-  /* Links with neon treatment */
-  a {
-    @apply text-text transition-all duration-300;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(166, 77, 255, 0.3);
-  }
-
-  a:hover {
-    @apply text-pink;
-    border-color: rgba(255, 42, 109, 0.8);
-    text-shadow: 0 0 10px rgba(255, 110, 199, 0.8);
+    border-radius: 2px;
   }
 }
 
 @layer components {
-  /* Cyberpunk component base styles */
-  .cyber-container {
-    @apply max-w-7xl mx-auto px-6 lg:px-8;
-    position: relative;
+  /* Sophisticated component base styles */
+  .elegant-container {
+    @apply max-w-6xl mx-auto px-6 lg:px-8;
   }
 
-  /* Section spacing with atmosphere */
+  /* Refined section spacing - more sophisticated on desktop */
   .section-spacing {
-    @apply py-16 md:py-20 lg:py-24;
-  }
-
-  /* Content sections */
-  .content-section {
     @apply py-12 md:py-16 lg:py-20;
   }
 
-  .cyber-card {
-    @apply bg-surface/80 backdrop-blur-md border border-violet/20 rounded-lg;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 80px rgba(166,77,255,0.15);
-    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  /* Tighter spacing for content sections */
+  .content-section {
+    @apply py-8 md:py-12 lg:py-16;
   }
 
-  .cyber-card:hover {
-    border-color: rgba(255,42,109,0.5);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 100px rgba(255,42,109,0.25);
-    transform: translateY(-2px);
+  .elegant-card {
+    @apply bg-card border border-border rounded-lg shadow-soft;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .neon-button {
-    @apply inline-flex items-center justify-center px-6 py-3 
-           text-sm font-semibold transition-all duration-300
-           rounded-full relative overflow-hidden;
-    background: linear-gradient(135deg, #ff2a6d, #a64dff);
-    color: #07070d;
-    box-shadow: 0 0 20px rgba(255,42,109,0.5), 0 0 40px rgba(166,77,255,0.3);
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  .elegant-button {
+    @apply inline-flex items-center justify-center px-8 py-4 
+           text-sm font-medium transition-all duration-300
+           bg-primary text-primary-foreground 
+           hover:bg-accent hover:text-accent-foreground
+           focus:outline-none focus:ring-2 focus:ring-accent
+           focus:ring-offset-2 rounded-md;
     transform: translateY(0);
   }
 
-  .neon-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 0 30px rgba(255,42,109,0.7), 0 0 60px rgba(166,77,255,0.5);
-    filter: brightness(1.2);
+  .elegant-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
-  .neon-button:active {
-    transform: translateY(0) scale(0.98);
+  .elegant-button:active {
+    transform: translateY(0);
   }
 
-  .ghost-button {
-    @apply inline-flex items-center justify-center px-6 py-3
-           text-sm font-medium transition-all duration-300
-           text-text border border-violet/30 rounded-full
-           backdrop-blur-sm relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  .elegant-link {
+    @apply text-primary hover:text-accent transition-all duration-300
+           underline decoration-1 underline-offset-4 
+           hover:decoration-2 hover:underline-offset-2;
   }
 
-  .ghost-button:hover {
-    @apply text-pink border-pink/50;
-    box-shadow: 0 0 20px rgba(255,110,199,0.4), 0 4px 20px rgba(0,0,0,0.5);
-    text-shadow: 0 0 10px rgba(255,110,199,0.8);
-  }
-
-  .cyber-link {
-    @apply text-violet hover:text-pink transition-all duration-300;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(166,77,255,0.3);
-  }
-
-  .cyber-link:hover {
-    border-color: rgba(255,42,109,0.8);
-    text-shadow: 0 0 10px currentColor;
-  }
-
-  /* Cyberpunk loading state */
+  /* Sophisticated loading state */
   .loading-skeleton {
     background: linear-gradient(
       90deg,
-      rgba(166,77,255,0.1) 0%,
-      rgba(255,42,109,0.2) 50%,
-      rgba(166,77,255,0.1) 100%
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.8) 50%,
+      hsl(var(--muted)) 100%
     );
     background-size: 200% 100%;
     animation: loading-shimmer 1.5s infinite;
-    box-shadow: 0 0 20px rgba(166,77,255,0.3);
   }
 
   @keyframes loading-shimmer {
@@ -296,46 +203,6 @@
     100% {
       background-position: 200% 0;
     }
-  }
-
-  /* Glass morphism cards */
-  .glass-card {
-    background: linear-gradient(135deg, rgba(18,21,32,0.6), rgba(7,7,13,0.4));
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-
-  /* Neon glow text */
-  .neon-text {
-    background: linear-gradient(135deg, #ff2a6d, #a64dff, #2de2e6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 20px rgba(166,77,255,0.5));
-  }
-
-  /* CRT effect overlay */
-  .crt-overlay {
-    position: relative;
-  }
-
-  .crt-overlay::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      rgba(255,255,255,0.03) 1px,
-      transparent 2px,
-      transparent 4px
-    );
-    pointer-events: none;
-    z-index: 1;
   }
 
   /* Enhanced scroll reveal */
@@ -352,13 +219,13 @@
 }
 
 @layer utilities {
-  /* Cyberpunk spacing utilities */
-  .space-y-cyber > * + * {
-    margin-top: 2rem;
+  /* Sophisticated spacing utilities */
+  .space-y-elegant > * + * {
+    margin-top: 1.5rem;
   }
 
   .space-y-section > * + * {
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
 
   /* Content width constraints */
@@ -370,64 +237,18 @@
     max-width: 20ch;
   }
 
-  /* Cyberpunk animations */
+  /* Sophisticated animations */
   .animate-fade-in-up {
-    animation: fade-in-up 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-reveal {
-    animation: reveal 1s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .animate-reveal-delay {
-    animation: reveal 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+    animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
     opacity: 0;
-  }
-
-  .animate-glitch {
-    animation: neon-glitch 700ms steps(12, end) infinite;
-  }
-
-  .animate-flicker {
-    animation: crt-flicker 3.5s ease-in-out infinite;
-  }
-
-  .animate-rain {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 2px,
-      rgba(45,226,230,0.05) 3px,
-      transparent 4px
-    );
-    background-size: 100% 300px;
-    animation: rain-scroll 8s linear infinite;
-  }
-
-  /* Neon shadows */
-  .neon-shadow-magenta {
-    box-shadow: 0 0 20px rgba(255,42,109,0.6), 0 0 40px rgba(255,42,109,0.3);
-  }
-
-  .neon-shadow-violet {
-    box-shadow: 0 0 20px rgba(166,77,255,0.6), 0 0 40px rgba(166,77,255,0.3);
-  }
-
-  .neon-shadow-teal {
-    box-shadow: 0 0 20px rgba(45,226,230,0.6), 0 0 40px rgba(45,226,230,0.3);
-  }
-
-  /* Text effects */
-  .text-glow-magenta {
-    text-shadow: 0 0 20px rgba(255,42,109,0.8), 0 0 40px rgba(255,42,109,0.4);
-  }
-
-  .text-glow-violet {
-    text-shadow: 0 0 20px rgba(166,77,255,0.8), 0 0 40px rgba(166,77,255,0.4);
-  }
-
-  .text-glow-teal {
-    text-shadow: 0 0 20px rgba(45,226,230,0.8), 0 0 40px rgba(45,226,230,0.4);
   }
 
   /* Reduced motion support */
