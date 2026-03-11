@@ -30,7 +30,7 @@ const MainPage = () => {
   return (
     <main className="min-h-screen bg-cream relative">
       {/* NeuroNoise shader background */}
-      <div className="fixed inset-0 z-0 opacity-40">
+      <div className="fixed inset-0 z-0 opacity-15">
         <NeuroNoise
           colorFront="#B8860B"
           colorMid="#0A1628"

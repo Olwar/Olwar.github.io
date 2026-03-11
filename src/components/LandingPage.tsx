@@ -9,7 +9,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   return (
     <div className="fixed inset-0 bg-cream flex items-center justify-center px-6">
       {/* NeuroNoise shader background */}
-      <div className="absolute inset-0 z-0 opacity-60">
+      <div className="absolute inset-0 z-0 opacity-20">
         <NeuroNoise
           colorFront="#B8860B"
           colorMid="#0A1628"
