@@ -64,35 +64,37 @@ const MainPage = () => {
 
         {/* About Section */}
         <section className="content-section scroll-reveal">
-          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
-            <div className="space-y-8">
+          <div className="elegant-card p-8 md:p-12">
+            <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
               <div className="space-y-8">
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal">
-                  About
-                </h2>
-                <div className="space-y-6 content-width">
-                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
-                    Combining artificial intelligence and psychology to deepen
-                    our understanding of how technology can enhance human
-                    potential.
-                  </p>
-                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
-                    My approach to AI development is grounded in both technical
-                    expertise and a deep understanding of human psychology,
-                    ensuring technology serves humanity meaningfully.
-                  </p>
+                <div className="space-y-8">
+                  <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal">
+                    About
+                  </h2>
+                  <div className="space-y-6 content-width">
+                    <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
+                      Combining artificial intelligence and psychology to deepen
+                      our understanding of how technology can enhance human
+                      potential.
+                    </p>
+                    <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
+                      My approach to AI development is grounded in both technical
+                      expertise and a deep understanding of human psychology,
+                      ensuring technology serves humanity meaningfully.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="space-y-8 scroll-reveal">
-              <div className="w-full max-w-md lg:max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-                <img
-                  src="/polaroid.png"
-                  alt="Olli Airola"
-                  className="w-full h-auto rounded-lg shadow-elegant transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                />
+              <div className="space-y-8 scroll-reveal">
+                <div className="w-full max-w-md lg:max-w-lg mx-auto lg:mx-0 lg:ml-auto">
+                  <img
+                    src="/polaroid.png"
+                    alt="Olli Airola"
+                    className="w-full h-auto rounded-lg shadow-elegant transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -100,7 +102,7 @@ const MainPage = () => {
 
         {/* Experience Section - Centered Design */}
         <section className="content-section scroll-reveal">
-          <div className="space-y-16">
+          <div className="elegant-card p-8 md:p-12 space-y-16">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal text-center">
               Experience
             </h2>
@@ -189,15 +191,21 @@ const MainPage = () => {
 
         {/* Tighter spacing for content flow */}
         <div className="scroll-reveal">
-          <MediaSection />
+          <div className="elegant-card p-8 md:p-12">
+            <MediaSection />
+          </div>
         </div>
 
         <div className="scroll-reveal">
-          <ProjectsSection />
+          <div className="elegant-card p-8 md:p-12">
+            <ProjectsSection />
+          </div>
         </div>
 
         <div className="scroll-reveal">
-          <ContactSection />
+          <div className="elegant-card p-8 md:p-12">
+            <ContactSection />
+          </div>
         </div>
 
         {/* Sophisticated Footer */}
