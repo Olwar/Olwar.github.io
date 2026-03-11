@@ -32,11 +32,11 @@ const MainPage = () => {
       {/* NeuroNoise shader background */}
       <div className="fixed inset-0 z-0 opacity-40">
         <NeuroNoise
-          colorFront="#ff2a6d"
-          colorMid="#a64dff"
-          colorBack="#07070d"
-          brightness={0.05}
-          contrast={0.3}
+          colorFront="#B8860B"
+          colorMid="#0A1628"
+          colorBack="#FEFCF8"
+          brightness={0.15}
+          contrast={0.12}
           speed={0.3}
           scale={1.5}
           style={{ width: "100%", height: "100%" }}
