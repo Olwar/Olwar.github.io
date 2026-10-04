@@ -19,16 +19,14 @@ interface MediaItem {
 const mediaItems: MediaItem[] = [
   {
     id: 1,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ylen_logo.svg/600px-Ylen_logo.svg.png",
+    image: "/yle-logo.svg",
     title: "Tekoäly neuvoi toimittajaa laittamaan kynähameen töihin",
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20083714",
   },
   {
     id: 2,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Ylen_logo.svg/600px-Ylen_logo.svg.png",
+    image: "/yle-logo.svg",
     title: "Toimittaja kokeili terapiaa, jossa terapeutti ei ole ihminen",
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20077840",

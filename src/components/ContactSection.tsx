@@ -39,7 +39,7 @@ const ContactSection = () => {
     {
       id: 3,
       label: "AI Newsletter",
-      value: "Subscribe to my AI insights",
+      value: "One of the biggest AI newsletters in Finland",
       link: "https://tekoalyolli.substack.com/",
     },
     {

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { NeuroNoise } from "@paper-design/shaders-react";
 import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
@@ -29,19 +28,6 @@ const MainPage = () => {
 
   return (
     <main className="min-h-screen bg-cream relative">
-      {/* NeuroNoise shader background */}
-      <div className="fixed inset-0 z-0 opacity-15">
-        <NeuroNoise
-          colorFront="#B8860B"
-          colorMid="#0A1628"
-          colorBack="#FEFCF8"
-          brightness={0.15}
-          contrast={0.12}
-          speed={0.3}
-          scale={1.5}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
       <div className="elegant-container relative z-10">
         {/* Hero Section */}
         <section className="section-spacing">

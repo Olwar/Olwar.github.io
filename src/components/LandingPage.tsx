@@ -1,5 +1,4 @@
 import React from "react";
-import { NeuroNoise } from "@paper-design/shaders-react";
 
 interface LandingPageProps {
   onEnter: () => void;
@@ -8,19 +7,6 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
   return (
     <div className="fixed inset-0 bg-cream flex items-center justify-center px-6">
-      {/* NeuroNoise shader background */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        <NeuroNoise
-          colorFront="#B8860B"
-          colorMid="#0A1628"
-          colorBack="#FEFCF8"
-          brightness={0.15}
-          contrast={0.12}
-          speed={0.3}
-          scale={1.2}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
       <div className="elegant-container text-center relative z-10">
         <div className="animate-fade-in-up">
           {/* Sophisticated portrait presentation */}

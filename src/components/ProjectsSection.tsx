@@ -24,13 +24,27 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "AI Newsletter",
+    title: "Vanhemmuuden tekoälyapuri",
     description:
-      "Free AI newsletter in Finnish to make Finland the #1 country in AI knowledge, covering the latest developments in artificial intelligence.",
-    link: "https://tekoalyolli.substack.com/",
+      "24/7 AI assistant that gives parents research-based support on parenting, child development, and mental health. Made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.",
+    link: "https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/",
   },
   {
     id: 4,
+    title: "OP Päävalmentaja",
+    description:
+      "AI tool that helps youth sports coaches support young athletes' mental well-being and find words for difficult conversations. Made with MIELI ry and OP Pohjola.",
+    link: "https://mieli.fi/paavalmentaja/",
+  },
+  {
+    id: 5,
+    title: "AI Newsletter",
+    description:
+      "One of the biggest AI newsletters in Finland. Free and in Finnish, with the goal of making Finland the #1 country in AI knowledge.",
+    link: "https://tekoalyolli.substack.com/",
+  },
+  {
+    id: 6,
     title: "Happy Palette",
     description:
       "AI-powered color analysis and scanner tool that helps users discover their perfect color palette through state-of-the-art Large Vision Models.",
