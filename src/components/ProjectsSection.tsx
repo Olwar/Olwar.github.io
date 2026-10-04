@@ -19,10 +19,10 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "MentalNext",
+    title: "SocialNext",
     description:
       "As CTO, developing a digital psychology platform for social anxiety. Features assessments, personalized feedback, and interactive exercises built by psychologists.",
-    link: "https://www.ujonrohkaisija.fi/",
+    link: "https://socialnext.app/",
   },
   {
     id: 3,

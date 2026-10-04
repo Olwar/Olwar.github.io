@@ -7,7 +7,7 @@ Email: olli@olliairola.com
 
 ## Current roles
 
-- Chief Technology Officer, MentalNext (Apr 2025 – present)
+- Chief Technology Officer, SocialNext (Apr 2025 – present)
 - AI Research Engineer, Illusian Founder Office (Oct 2024 – present)
 - AI Software Developer & Psychologist, self-employed (Oct 2023 – present)
 
@@ -19,7 +19,7 @@ Email: olli@olliairola.com
 ## Projects
 
 - [SocialHuman](https://socialhuman.dev/): A human-only social network. Every post is taken live in the app by a real person, with no uploads and no filters, and checked before anyone sees it. Free on iOS and Android.
-- [MentalNext](https://www.ujonrohkaisija.fi/): Digital psychology platform for social anxiety. Olli is the CTO.
+- [SocialNext](https://socialnext.app/): Digital psychology platform for social anxiety. Olli is the CTO.
 - [Sekasin-tekoälyapuri](https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/): Mental health AI assistant for young people, built at Illusian Founder Office.
 - [Vanhemmuuden tekoälyapuri](https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/): 24/7 AI assistant for parents, made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.
 - [OP Päävalmentaja](https://mieli.fi/paavalmentaja/): AI tool that helps youth sports coaches support young athletes' mental well-being, made with MIELI ry and OP Pohjola.
