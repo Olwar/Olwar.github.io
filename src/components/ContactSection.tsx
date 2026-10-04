@@ -130,19 +130,6 @@ const ContactSection = () => {
             ))}
           </div>
         </div>
-
-        <div className="text-center max-w-2xl mx-auto">
-          <div className="elegant-card p-8">
-            <h3 className="font-serif text-xl font-medium text-charcoal mb-4">
-              Let's Collaborate
-            </h3>
-            <p className="text-charcoal/70 leading-relaxed">
-              Whether you're interested in AI development, psychology research,
-              or exploring the intersection of technology and human behavior,
-              I'd love to hear from you.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
