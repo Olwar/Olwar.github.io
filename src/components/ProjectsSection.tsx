@@ -5,46 +5,55 @@ interface Project {
   title: string;
   description: string;
   link?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
     id: 1,
+    title: "SocialHuman",
+    description:
+      "A human-only social network. Every post is taken live in the app by a real person, with no uploads and no filters, and checked before anyone sees it. Free on iOS and Android.",
+    link: "https://socialhuman.dev/",
+    featured: true,
+  },
+  {
+    id: 2,
     title: "MentalNext",
     description:
       "As CTO, developing a digital psychology platform for social anxiety. Features assessments, personalized feedback, and interactive exercises built by psychologists.",
     link: "https://www.ujonrohkaisija.fi/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Sekasin-tekoälyapuri",
     description:
       "Mental health AI assistant helping youth access support when human assistance isn't available. Built at Illusian Founder Office.",
     link: "https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Vanhemmuuden tekoälyapuri",
     description:
       "24/7 AI assistant that gives parents research-based support on parenting, child development, and mental health. Made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.",
     link: "https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/",
   },
   {
-    id: 4,
+    id: 5,
     title: "OP Päävalmentaja",
     description:
       "AI tool that helps youth sports coaches support young athletes' mental well-being and find words for difficult conversations. Made with MIELI ry and OP Pohjola.",
     link: "https://mieli.fi/paavalmentaja/",
   },
   {
-    id: 5,
+    id: 6,
     title: "AI Newsletter",
     description:
       "One of the biggest AI newsletters in Finland. Free and in Finnish, with the goal of making Finland the #1 country in AI knowledge.",
     link: "https://tekoalyolli.substack.com/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Happy Palette",
     description:
       "AI-powered color analysis and scanner tool that helps users discover their perfect color palette through state-of-the-art Large Vision Models.",
@@ -69,7 +78,7 @@ const ProjectsSection = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className={`group block ${project.featured ? "md:col-span-2" : ""}`}
             >
               <div className="elegant-card p-8 h-full transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
                 <div className="space-y-4">

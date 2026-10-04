@@ -15,14 +15,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
               className="relative inline-block cursor-pointer group transition-all duration-500 hover:scale-105"
               onClick={onEnter}
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 mx-auto overflow-hidden rounded-lg shadow-elegant bg-white">
+              <div className="w-64 md:w-80 mx-auto">
                 <img
                   src="/polaroid.png"
                   alt="Olli Airola"
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </div>
-              <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/5 transition-all duration-500 rounded-lg"></div>
             </div>
           </div>
 

@@ -3,6 +3,35 @@ import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 
+const experience = [
+  {
+    role: "Chief Technology Officer",
+    company: "MentalNext",
+    period: "Apr 2025 — Present",
+  },
+  {
+    role: "AI Research Engineer",
+    company: "Illusian Founder Office",
+    period: "Oct 2024 — Present",
+  },
+  {
+    role: "AI Software Developer & Psychologist",
+    company: "Self-employed",
+    period: "Oct 2023 — Present",
+  },
+  {
+    role: "Data & AI Consultant",
+    company: "Codento Oy",
+    period: "Apr 2023 — Oct 2023",
+  },
+  {
+    role: "Psychologist",
+    company: "Various Organizations",
+    period: "Jan 2020 — Jun 2023",
+    note: "4.48/5 client satisfaction rating",
+  },
+];
+
 const MainPage = () => {
   useEffect(() => {
     // Sophisticated scroll reveal implementation
@@ -76,7 +105,7 @@ const MainPage = () => {
                 <img
                   src="/polaroid.png"
                   alt="Olli Airola"
-                  className="w-full h-auto rounded-lg shadow-elegant transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto drop-shadow-lg transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -84,90 +113,40 @@ const MainPage = () => {
           </div>
         </section>
 
-        {/* Experience Section - Centered Design */}
+        {/* Experience Section - Horizontal timeline */}
         <section className="content-section scroll-reveal">
           <div className="space-y-16">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal text-center">
               Experience
             </h2>
 
-            <div className="max-w-3xl mx-auto">
-              <div className="space-y-12 md:space-y-16">
-                <div className="text-center scroll-reveal group">
-                  <div className="space-y-3">
-                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
-                      Chief Technology Officer
-                    </h3>
-                    <p className="text-lg text-navy font-medium">
-                      MentalNext
-                    </p>
-                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                      Apr 2025 — Present
-                    </p>
+            <div className="max-w-6xl mx-auto">
+              <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-5 lg:gap-6">
+                <div
+                  aria-hidden="true"
+                  className="hidden lg:block absolute top-[3.5px] left-[calc(10%-0.6rem)] right-[calc(10%-0.6rem)] h-px bg-bronze/30"
+                ></div>
+                {experience.map((item) => (
+                  <div key={item.role} className="text-center scroll-reveal group">
+                    <div className="space-y-3">
+                      <div className="relative w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
+                      <h3 className="text-xl md:text-2xl lg:text-xl font-serif font-medium text-charcoal">
+                        {item.role}
+                      </h3>
+                      <p className="text-lg lg:text-base text-navy font-medium">
+                        {item.company}
+                      </p>
+                      <p className="text-sm text-charcoal/60 font-mono tracking-wide">
+                        {item.period}
+                      </p>
+                      {item.note && (
+                        <p className="text-sm text-charcoal/60 italic">
+                          {item.note}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-
-                <div className="text-center scroll-reveal group">
-                  <div className="space-y-3">
-                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
-                      AI Research Engineer
-                    </h3>
-                    <p className="text-lg text-navy font-medium">
-                      Illusian Founder Office
-                    </p>
-                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                      Oct 2024 — Present
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center scroll-reveal group">
-                  <div className="space-y-3">
-                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
-                      AI Software Developer & Psychologist
-                    </h3>
-                    <p className="text-lg text-navy font-medium">
-                      Self-employed
-                    </p>
-                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                      Oct 2023 — Present
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center scroll-reveal group">
-                  <div className="space-y-3">
-                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
-                      Data & AI Consultant
-                    </h3>
-                    <p className="text-lg text-navy font-medium">Codento Oy</p>
-                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                      Apr 2023 — Oct 2023
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center scroll-reveal group">
-                  <div className="space-y-3">
-                    <div className="w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                    <h3 className="text-xl md:text-2xl font-serif font-medium text-charcoal">
-                      Psychologist
-                    </h3>
-                    <p className="text-lg text-navy font-medium">
-                      Various Organizations
-                    </p>
-                    <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                      Jan 2020 — Jun 2023
-                    </p>
-                    <p className="text-sm text-charcoal/60 italic">
-                      4.48/5 client satisfaction rating
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
