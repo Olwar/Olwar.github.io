@@ -104,18 +104,6 @@ const MainPage = () => {
                     expertise and a deep understanding of human psychology,
                     ensuring technology serves humanity meaningfully.
                   </p>
-                  <p
-                    lang="fi"
-                    className="text-base md:text-lg leading-relaxed text-charcoal/60 italic"
-                  >
-                    Olli Airola on helsinkiläinen psykologi ja tekoälykehittäjä.
-                    Hän on kehittänyt SocialHumanin, vain ihmisille tarkoitetun
-                    sosiaalisen median, sekä mielenterveyden tekoälyapureita,
-                    kuten Sekasin-tekoälyapurin, Vanhemmuuden tekoälyapurin ja OP
-                    Päävalmentajan. Hän kirjoittaa Tekoälyn Huipulla
-                    -uutiskirjettä, joka on yksi Suomen suurimmista
-                    tekoälyuutiskirjeistä.
-                  </p>
                 </div>
               </div>
             </div>
@@ -191,9 +179,6 @@ const MainPage = () => {
           <div className="space-y-4">
             <p className="text-sm text-charcoal/40 font-mono tracking-wider">
               © {new Date().getFullYear()} Olli Airola. All rights reserved.
-            </p>
-            <p className="text-xs text-charcoal/30 font-mono">
-              Crafted with intention and attention to detail.
             </p>
           </div>
         </footer>
