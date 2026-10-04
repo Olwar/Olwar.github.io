@@ -34,7 +34,7 @@ const ContactSection = () => {
       id: 2,
       label: "LinkedIn",
       value: "Connect professionally",
-      link: "https://www.linkedin.com/in/olli-airola/",
+      link: "https://www.linkedin.com/in/tekoalyolli/",
     },
     {
       id: 3,

@@ -17,7 +17,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
             >
               <div className="w-64 md:w-80 mx-auto">
                 <img
-                  src="/polaroid.png"
+                  src="/polaroid.webp"
                   alt="Olli Airola"
                   className="w-full h-auto drop-shadow-lg"
                 />
@@ -51,7 +51,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnter }) => {
         {/* Minimal footer */}
         <div className="fixed bottom-6 left-0 right-0 text-center">
           <p className="text-xs text-charcoal/40 font-mono tracking-wider">
-            Portfolio 2024
+            Portfolio {new Date().getFullYear()}
           </p>
         </div>
       </div>

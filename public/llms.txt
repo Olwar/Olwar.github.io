@@ -1,0 +1,42 @@
+# Olli Airola
+
+> Olli Airola (also known as TekoälyOlli) is a psychologist (M.Psych., PsM) and AI research engineer based in Helsinki, Finland. He created SocialHuman, the human-only social network, builds AI tools for mental health, and writes Tekoälyn Huipulla, one of the biggest AI newsletters in Finland.
+
+Website: https://olliairola.com/
+Email: olli@olliairola.com
+
+## Current roles
+
+- Chief Technology Officer, MentalNext (Apr 2025 – present)
+- AI Research Engineer, Illusian Founder Office (Oct 2024 – present)
+- AI Software Developer & Psychologist, self-employed (Oct 2023 – present)
+
+## Earlier roles
+
+- Data & AI Consultant, Codento Oy (Apr 2023 – Oct 2023)
+- Psychologist, various organizations (Jan 2020 – Jun 2023)
+
+## Projects
+
+- [SocialHuman](https://socialhuman.dev/): A human-only social network. Every post is taken live in the app by a real person, with no uploads and no filters, and checked before anyone sees it. Free on iOS and Android.
+- [MentalNext](https://www.ujonrohkaisija.fi/): Digital psychology platform for social anxiety. Olli is the CTO.
+- [Sekasin-tekoälyapuri](https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/): Mental health AI assistant for young people, built at Illusian Founder Office.
+- [Vanhemmuuden tekoälyapuri](https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/): 24/7 AI assistant for parents, made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.
+- [OP Päävalmentaja](https://mieli.fi/paavalmentaja/): AI tool that helps youth sports coaches support young athletes' mental well-being, made with MIELI ry and OP Pohjola.
+- [Tekoälyn Huipulla](https://tekoalyolli.substack.com/): Free Finnish AI newsletter, one of the biggest in Finland.
+- [Happy Palette](https://www.happypalette.app/): AI color analysis tool.
+
+## Media appearances
+
+- [Apu: Moni hakee mielenterveysapua tekoälyltä, mutta siinä on riskinsä](https://www.apu.fi/artikkelit/moni-hakee-mielenterveysapua-tekoalylta-mutta-siina-on-riskinsa) (2026)
+- [Yle: Tekoäly neuvoi toimittajaa laittamaan kynähameen töihin](https://yle.fi/a/74-20083714)
+- [Yle: Toimittaja kokeili terapiaa, jossa terapeutti ei ole ihminen](https://yle.fi/a/74-20077840)
+- [Psykologilehti: Tekoäly ja psykologia: Vallankumouksellinen liitto](https://psykologilehti.fi/tekoaly-ja-psykologia-vallankumouksellinen-liitto/)
+- [Niinku asia on podcast: ChatGPT terapeuttina](https://podcasts.apple.com/fi/podcast/chatgpt-terapeuttina-olli-airola-pjk-111/id1464577586?i=1000714318245) (2025)
+- [AIka Hyvä Maailma podcast: Tekoälyn huipulla: vieraana Olli Airola](https://podcasts.apple.com/fi/podcast/016-teko%C3%A4lyn-huipulla-vieraana-olli-airola-teko%C3%A4lyolli/id1715699694?i=1000668616668) (2024)
+
+## Profiles
+
+- LinkedIn: https://www.linkedin.com/in/tekoalyolli/
+- GitHub: https://github.com/Olwar
+- Substack: https://tekoalyolli.substack.com/

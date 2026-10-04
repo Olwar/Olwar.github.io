@@ -87,6 +87,14 @@ const MainPage = () => {
                 </h2>
                 <div className="space-y-6 content-width">
                   <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
+                    I'm Olli Airola, a psychologist (M.Psych.) and AI research
+                    engineer based in Helsinki, Finland. I created SocialHuman,
+                    the human-only social network, and I build AI tools for
+                    mental health, such as Sekasin-tekoälyapuri, Vanhemmuuden
+                    tekoälyapuri, and OP Päävalmentaja. I also write Tekoälyn
+                    Huipulla, one of the biggest AI newsletters in Finland.
+                  </p>
+                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
                     Combining artificial intelligence and psychology to deepen
                     our understanding of how technology can enhance human
                     potential.
@@ -96,6 +104,18 @@ const MainPage = () => {
                     expertise and a deep understanding of human psychology,
                     ensuring technology serves humanity meaningfully.
                   </p>
+                  <p
+                    lang="fi"
+                    className="text-base md:text-lg leading-relaxed text-charcoal/60 italic"
+                  >
+                    Olli Airola on helsinkiläinen psykologi ja tekoälykehittäjä.
+                    Hän on kehittänyt SocialHumanin, vain ihmisille tarkoitetun
+                    sosiaalisen median, sekä mielenterveyden tekoälyapureita,
+                    kuten Sekasin-tekoälyapurin, Vanhemmuuden tekoälyapurin ja OP
+                    Päävalmentajan. Hän kirjoittaa Tekoälyn Huipulla
+                    -uutiskirjettä, joka on yksi Suomen suurimmista
+                    tekoälyuutiskirjeistä.
+                  </p>
                 </div>
               </div>
             </div>
@@ -103,10 +123,11 @@ const MainPage = () => {
             <div className="space-y-8 scroll-reveal">
               <div className="w-full max-w-md lg:max-w-lg mx-auto lg:mx-0 lg:ml-auto">
                 <img
-                  src="/polaroid.png"
-                  alt="Olli Airola"
+                  src="/polaroid.webp"
+                  alt="Olli Airola, psychologist and AI research engineer, in a polaroid photo"
+                  width={1080}
+                  height={1350}
                   className="w-full h-auto drop-shadow-lg transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -169,7 +190,7 @@ const MainPage = () => {
         <footer className="py-12 text-center border-t border-border/50 scroll-reveal">
           <div className="space-y-4">
             <p className="text-sm text-charcoal/40 font-mono tracking-wider">
-              © 2024 Olli Airola. All rights reserved.
+              © {new Date().getFullYear()} Olli Airola. All rights reserved.
             </p>
             <p className="text-xs text-charcoal/30 font-mono">
               Crafted with intention and attention to detail.
