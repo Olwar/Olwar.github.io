@@ -14,29 +14,53 @@ interface MediaItem {
   title: string;
   source: string;
   link: string;
+  cta?: string;
 }
 
 const mediaItems: MediaItem[] = [
   {
     id: 1,
+    image: "/apu-logo.png",
+    title: "Moni hakee mielenterveysapua tekoälyltä, mutta siinä on riskinsä",
+    source: "Apu",
+    link: "https://www.apu.fi/artikkelit/moni-hakee-mielenterveysapua-tekoalylta-mutta-siina-on-riskinsa",
+  },
+  {
+    id: 2,
     image: "/yle-logo.svg",
     title: "Tekoäly neuvoi toimittajaa laittamaan kynähameen töihin",
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20083714",
   },
   {
-    id: 2,
+    id: 3,
     image: "/yle-logo.svg",
     title: "Toimittaja kokeili terapiaa, jossa terapeutti ei ole ihminen",
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20077840",
   },
   {
-    id: 3,
+    id: 4,
     image: "https://www.psyli.fi/wp-content/uploads/2020/04/psyli-round.svg",
     title: "Tekoäly ja psykologia: Vallankumouksellinen liitto",
     source: "Psykologilehti",
     link: "https://psykologilehti.fi/tekoaly-ja-psykologia-vallankumouksellinen-liitto/",
+  },
+  {
+    id: 5,
+    image: "/niinku-asia-on.jpg",
+    title: "ChatGPT terapeuttina",
+    source: "Niinku asia on podcast",
+    link: "https://podcasts.apple.com/fi/podcast/chatgpt-terapeuttina-olli-airola-pjk-111/id1464577586?i=1000714318245",
+    cta: "Listen to episode",
+  },
+  {
+    id: 6,
+    image: "/aika-hyva-maailma.jpg",
+    title: "Tekoälyn huipulla: vieraana Olli Airola",
+    source: "AIka Hyvä Maailma podcast",
+    link: "https://podcasts.apple.com/fi/podcast/016-teko%C3%A4lyn-huipulla-vieraana-olli-airola-teko%C3%A4lyolli/id1715699694?i=1000668616668",
+    cta: "Listen to episode",
   },
 ];
 
@@ -51,7 +75,7 @@ const MediaSection = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <Carousel className="w-full" opts={{ loop: true, align: "center" }}>
+          <Carousel className="w-full" opts={{ loop: true, align: "start" }}>
             <CarouselContent className="-ml-6">
               {mediaItems.map((item) => (
                 <CarouselItem
@@ -72,7 +96,7 @@ const MediaSection = () => {
                         >
                           <img
                             src={item.image}
-                            alt={`${item.source} logo`}
+                            alt={item.source}
                             className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                           />
                         </AspectRatio>
@@ -88,7 +112,7 @@ const MediaSection = () => {
 
                         <div className="pt-2">
                           <span className="text-sm font-medium text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
-                            Read article →
+                            {item.cta ?? "Read article"} →
                           </span>
                         </div>
                       </div>
