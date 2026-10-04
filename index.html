@@ -233,6 +233,13 @@
 
     <!-- Preload critical resources -->
     <link rel="preload" href="/polaroid.webp" as="image" type="image/webp" />
+
+    <!-- Prerendered content stays visible when JavaScript does not run -->
+    <noscript>
+      <style>
+        .scroll-reveal { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
   </head>
 
   <body>

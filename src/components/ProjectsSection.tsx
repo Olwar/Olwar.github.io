@@ -59,6 +59,13 @@ const projects: Project[] = [
       "AI-powered color analysis and scanner tool that helps users discover their perfect color palette through state-of-the-art Large Vision Models.",
     link: "https://www.happypalette.app/",
   },
+  {
+    id: 8,
+    title: "Asuntohaku – HSL-matka-ajat",
+    description:
+      "Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings to the places you visit most. Built on the HSL Digitransit API.",
+    link: "https://hsl-route-api.vercel.app/",
+  },
 ];
 
 const ProjectsSection = () => {

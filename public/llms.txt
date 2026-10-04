@@ -25,6 +25,7 @@ Email: olli@olliairola.com
 - [OP Päävalmentaja](https://mieli.fi/paavalmentaja/): AI tool that helps youth sports coaches support young athletes' mental well-being, made with MIELI ry and OP Pohjola.
 - [Tekoälyn Huipulla](https://tekoalyolli.substack.com/): Free Finnish AI newsletter, one of the biggest in Finland.
 - [Happy Palette](https://www.happypalette.app/): AI color analysis tool.
+- [Asuntohaku – HSL-matka-ajat](https://hsl-route-api.vercel.app/): Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings. Built on the HSL Digitransit API.
 
 ## Media appearances
 
