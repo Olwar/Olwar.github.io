@@ -65,14 +65,9 @@ const MainPage = () => {
               <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium text-charcoal tracking-tight title-width mx-auto">
                 Olli Airola
               </h1>
-              <div className="space-y-3">
-                <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
-                  Software Developer
-                </p>
-                <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
-                  Psychologist
-                </p>
-              </div>
+              <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
+                Psychologist &amp; AI Research Engineer
+              </p>
             </div>
           </div>
         </section>
