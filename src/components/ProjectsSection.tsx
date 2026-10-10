@@ -66,6 +66,13 @@ const projects: Project[] = [
       "Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings to the places you visit most. Built on the HSL Digitransit API.",
     link: "https://hsl-route-api.vercel.app/",
   },
+  {
+    id: 9,
+    title: "Ilma",
+    description:
+      "Hourly weather forecast for any place 7 days ahead, with rain radar for Finland. Blends six weather models, shows how much they disagree, and checks its accuracy every night against real weather stations.",
+    link: "https://ilma.io/",
+  },
 ];
 
 const ProjectsSection = () => {
