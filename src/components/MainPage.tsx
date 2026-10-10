@@ -15,7 +15,7 @@ const experience = [
     period: "Oct 2024 — Present",
   },
   {
-    role: "Entrepreneur",
+    role: "Solopreneur",
     company: "Self-employed",
     period: "Oct 2023 — Present",
   },
