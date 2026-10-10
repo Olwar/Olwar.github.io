@@ -16,7 +16,6 @@ const experience = [
   },
   {
     role: "Solopreneur",
-    company: "Self-employed",
     period: "Oct 2023 — Present",
   },
   {
@@ -137,9 +136,11 @@ const MainPage = () => {
                       <h3 className="text-xl md:text-2xl lg:text-xl font-serif font-medium text-charcoal">
                         {item.role}
                       </h3>
-                      <p className="text-lg lg:text-base text-navy font-medium">
-                        {item.company}
-                      </p>
+                      {item.company && (
+                        <p className="text-lg lg:text-base text-navy font-medium">
+                          {item.company}
+                        </p>
+                      )}
                       <p className="text-sm text-charcoal/60 font-mono tracking-wide">
                         {item.period}
                       </p>
