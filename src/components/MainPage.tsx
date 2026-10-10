@@ -17,6 +17,7 @@ const experience = [
   {
     role: "Solopreneur",
     period: "Oct 2023 — Present",
+    note: "Psychological assessments, AI consulting, and lectures",
   },
   {
     role: "Data & AI Consultant",
