@@ -20,13 +20,13 @@ Email: olli@olliairola.com
 
 - [SocialHuman](https://socialhuman.dev/): A human-only social network. Every post is taken live in the app by a real person, with no uploads and no filters, and checked before anyone sees it. Free on iOS and Android.
 - [SocialNext](https://socialnext.app/): Digital psychology platform for social anxiety. Olli is the CTO.
+- [Ilma](https://ilma.io/): The most accurate weather service in Finland. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks itself at 14 Finnish weather stations, and it beats the Finnish Meteorological Institute and Foreca on temperature, wind, and rain.
+- [Tekoälyn Huipulla](https://tekoalyolli.substack.com/): Free Finnish AI newsletter, one of the biggest in Finland.
 - [Sekasin-tekoälyapuri](https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/): Mental health AI assistant for young people, built at Illusian Founder Office.
 - [Vanhemmuuden tekoälyapuri](https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/): 24/7 AI assistant for parents, made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.
 - [OP Päävalmentaja](https://mieli.fi/paavalmentaja/): AI tool that helps youth sports coaches support young athletes' mental well-being, made with MIELI ry and OP Pohjola.
-- [Tekoälyn Huipulla](https://tekoalyolli.substack.com/): Free Finnish AI newsletter, one of the biggest in Finland.
 - [Happy Palette](https://www.happypalette.app/): AI color analysis tool.
 - [Asuntohaku – HSL-matka-ajat](https://hsl-route-api.vercel.app/): Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings. Built on the HSL Digitransit API.
-- [Ilma](https://ilma.io/): The most accurate weather service in Finland. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks itself at 14 Finnish weather stations, and it beats the Finnish Meteorological Institute and Foreca on temperature, wind, and rain.
 
 ## Media appearances
 

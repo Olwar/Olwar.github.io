@@ -29,30 +29,14 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Sekasin-tekoälyapuri",
+    title: "Ilma",
     description:
-      "Mental health AI assistant helping youth access support when human assistance isn't available. Built at Illusian Founder Office.",
-    link: "https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/",
-    logo: "/projects/sekasin.webp",
+      "The most accurate weather service in Finland. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks itself at 14 Finnish weather stations, and it beats the Finnish Meteorological Institute and Foreca on temperature, wind, and rain.",
+    link: "https://ilma.io/",
+    logo: "/projects/ilma.webp",
   },
   {
     id: 4,
-    title: "Vanhemmuuden tekoälyapuri",
-    description:
-      "24/7 AI assistant that gives parents research-based support on parenting, child development, and mental health. Made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.",
-    link: "https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/",
-    logo: "/projects/mieli.webp",
-  },
-  {
-    id: 5,
-    title: "OP Päävalmentaja",
-    description:
-      "AI tool that helps youth sports coaches support young athletes' mental well-being and find words for difficult conversations. Made with MIELI ry and OP Pohjola.",
-    link: "https://mieli.fi/paavalmentaja/",
-    logo: "/projects/mieli.webp",
-  },
-  {
-    id: 6,
     title: "AI Newsletter",
     description:
       "One of the biggest AI newsletters in Finland. Free and in Finnish, with the goal of making Finland the #1 country in AI knowledge.",
@@ -60,7 +44,31 @@ const projects: Project[] = [
     logo: "/projects/tekoalyn-huipulla.webp",
   },
   {
+    id: 5,
+    title: "Sekasin-tekoälyapuri",
+    description:
+      "Mental health AI assistant helping youth access support when human assistance isn't available. Built at Illusian Founder Office.",
+    link: "https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/",
+    logo: "/projects/sekasin.webp",
+  },
+  {
+    id: 6,
+    title: "Vanhemmuuden tekoälyapuri",
+    description:
+      "24/7 AI assistant that gives parents research-based support on parenting, child development, and mental health. Made with MIELI ry, SOS-Lapsikylä, and the Finnish Red Cross.",
+    link: "https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/",
+    logo: "/projects/mieli.webp",
+  },
+  {
     id: 7,
+    title: "OP Päävalmentaja",
+    description:
+      "AI tool that helps youth sports coaches support young athletes' mental well-being and find words for difficult conversations. Made with MIELI ry and OP Pohjola.",
+    link: "https://mieli.fi/paavalmentaja/",
+    logo: "/projects/mieli.webp",
+  },
+  {
+    id: 8,
     title: "Happy Palette",
     description:
       "AI-powered color analysis and scanner tool that helps users discover their perfect color palette through state-of-the-art Large Vision Models.",
@@ -68,20 +76,12 @@ const projects: Project[] = [
     logo: "/projects/happy-palette.webp",
   },
   {
-    id: 8,
+    id: 9,
     title: "Asuntohaku – HSL-matka-ajat",
     description:
       "Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings to the places you visit most. Built on the HSL Digitransit API.",
     link: "https://hsl-route-api.vercel.app/",
     logo: "/projects/asuntohaku.webp",
-  },
-  {
-    id: 9,
-    title: "Ilma",
-    description:
-      "The most accurate weather service in Finland. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks itself at 14 Finnish weather stations, and it beats the Finnish Meteorological Institute and Foreca on temperature, wind, and rain.",
-    link: "https://ilma.io/",
-    logo: "/projects/ilma.webp",
   },
 ];
 
