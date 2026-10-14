@@ -27,6 +27,7 @@ Email: olli@olliairola.com
 - [OP Päävalmentaja](https://mieli.fi/paavalmentaja/): AI tool that helps youth sports coaches support young athletes' mental well-being, made with MIELI ry and OP Pohjola.
 - [Happy Palette](https://www.happypalette.app/): AI color analysis tool.
 - [Asuntohaku – HSL-matka-ajat](https://hsl-route-api.vercel.app/): Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings. Built on the HSL Digitransit API.
+- [SOAR](https://paper-vision-bot.vercel.app/): Experiment where AI models trade crypto every day with paper money, with a dashboard of returns, win rates, and confidence intervals.
 
 ## Media appearances
 

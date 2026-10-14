@@ -83,6 +83,14 @@ const projects: Project[] = [
     link: "https://hsl-route-api.vercel.app/",
     logo: "/projects/asuntohaku.webp",
   },
+  {
+    id: 10,
+    title: "SOAR",
+    description:
+      "An experiment where AI models trade crypto every day with paper money. Each position closes only at its take-profit or stop-loss, and every trade is logged. The dashboard shows returns, win rates against breakeven, and confidence intervals.",
+    link: "https://paper-vision-bot.vercel.app/",
+    logo: "/projects/soar.webp",
+  },
 ];
 
 const ProjectsSection = () => {
