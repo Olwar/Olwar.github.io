@@ -79,7 +79,7 @@ const projects: Project[] = [
     id: 9,
     title: "Asuntohaku – HSL-matka-ajat",
     description:
-      "Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings to the places you visit most. Built on the HSL Digitransit API.",
+      "Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings to the places you visit most.",
     link: "https://hsl-route-api.vercel.app/",
     logo: "/projects/asuntohaku.webp",
   },
@@ -90,6 +90,14 @@ const projects: Project[] = [
       "An experiment where AI models trade crypto every day with paper money. Each position closes only at its take-profit or stop-loss, and every trade is logged. The dashboard shows returns, win rates against breakeven, and confidence intervals.",
     link: "https://paper-vision-bot.vercel.app/",
     logo: "/projects/soar.webp",
+  },
+  {
+    id: 11,
+    title: "Polymarket Dashboard",
+    description:
+      "An experiment where an AI model bets on Polymarket prediction markets with $1,000 of paper money. Every day it researches the markets with web search and financial data, and it bets only when its own probability is at least 20% higher than the market's. The dashboard tracks every bet and its result.",
+    link: "https://polymarket-prediction.vercel.app/",
+    logo: "/projects/polymarket.webp",
   },
 ];
 
