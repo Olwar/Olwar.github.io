@@ -21,11 +21,11 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "SocialNext",
+    title: "Jollido",
     description:
-      "As CTO, developing a digital psychology platform for social anxiety. Features assessments, personalized feedback, and interactive exercises built by psychologists.",
-    link: "https://socialnext.app/",
-    logo: "/projects/socialnext.webp",
+      "As CTO, building Jollido, a social anxiety app with an AI coach that helps you practice before real situations like meetings, parties, and dates. Built by psychologists. On Google Play, with iPhone coming soon.",
+    link: "https://jollido.app/",
+    logo: "/projects/jollido.webp",
   },
   {
     id: 3,

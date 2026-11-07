@@ -6,7 +6,7 @@ import ContactSection from "./ContactSection";
 const experience = [
   {
     role: "Chief Technology Officer",
-    company: "SocialNext",
+    company: "Jollido",
     period: "Apr 2025 — Present",
   },
   {
