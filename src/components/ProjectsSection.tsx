@@ -68,14 +68,6 @@ const projects: Project[] = [
     logo: "/projects/mieli.webp",
   },
   {
-    id: 8,
-    title: "Happy Palette",
-    description:
-      "AI-powered color analysis and scanner tool that helps users discover their perfect color palette through state-of-the-art Large Vision Models.",
-    link: "https://www.happypalette.app/",
-    logo: "/projects/happy-palette.webp",
-  },
-  {
     id: 9,
     title: "Asuntohaku – HSL-matka-ajat",
     description:
