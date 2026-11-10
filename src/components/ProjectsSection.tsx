@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: 3,
     title: "Ilma",
     description:
-      "The most accurate weather service in Finland. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks itself at 14 Finnish weather stations, and it beats the Finnish Meteorological Institute and Foreca on temperature, wind, and rain.",
+      "More accurate than Finland's own weather services, FMI and Foreca. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks its temperature, wind, and rain forecasts at 14 Finnish weather stations.",
     link: "https://ilma.io/",
     logo: "/projects/ilma.webp",
   },
