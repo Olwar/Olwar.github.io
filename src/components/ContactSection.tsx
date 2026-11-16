@@ -1,135 +1,102 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Check, Copy } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { SectionHeading } from "./print";
 
-interface ContactMethod {
-  id: number;
-  label: string;
-  value: string;
-  action?: () => void;
-  link?: string;
-}
+const EMAIL = "olli@olliairola.com";
+
+const links = [
+  {
+    label: "LinkedIn",
+    value: "Connect professionally",
+    href: "https://www.linkedin.com/in/tekoalyolli/",
+  },
+  {
+    label: "AI Newsletter",
+    value: "One of the biggest AI newsletters in Finland",
+    href: "https://tekoalyolli.substack.com/",
+  },
+  {
+    label: "GitHub",
+    value: "View my open source projects",
+    href: "https://github.com/Olwar",
+  },
+];
 
 const ContactSection = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const timer = useRef<number>();
 
-  const copyToClipboard = async (text: string) => {
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+
+  const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText(text);
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
+      await navigator.clipboard.writeText(EMAIL);
+      setStatus("copied");
+      window.clearTimeout(timer.current);
+      timer.current = window.setTimeout(() => setStatus("idle"), 2000);
+    } catch {
+      setStatus("failed");
     }
   };
 
-  const contactMethods: ContactMethod[] = [
-    {
-      id: 1,
-      label: "Email",
-      value: "olli@olliairola.com",
-      action: () => copyToClipboard("olli@olliairola.com"),
-    },
-    {
-      id: 2,
-      label: "LinkedIn",
-      value: "Connect professionally",
-      link: "https://www.linkedin.com/in/tekoalyolli/",
-    },
-    {
-      id: 3,
-      label: "AI Newsletter",
-      value: "One of the biggest AI newsletters in Finland",
-      link: "https://tekoalyolli.substack.com/",
-    },
-    {
-      id: 4,
-      label: "GitHub",
-      value: "View my open source projects",
-      link: "https://github.com/Olwar",
-    },
-  ];
-
   return (
-    <section className="py-8 md:py-12 lg:py-14">
-      <div className="space-y-16">
-        <div className="text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal">
-            Get in Touch
-          </h2>
-        </div>
+    <section
+      aria-labelledby="contact"
+      className="scroll-reveal py-12 md:py-20"
+    >
+      <SectionHeading id="contact" number="05">
+        Get in Touch
+      </SectionHeading>
 
-        <div className="max-w-2xl mx-auto">
-          <div className="grid gap-6">
-            {contactMethods.map((method) => (
-              <div key={method.id} className="group">
-                {method.link ? (
-                  <a
-                    href={method.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div className="elegant-card p-6 transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <h3 className="font-medium text-charcoal group-hover:text-navy transition-colors duration-300">
-                            {method.label}
-                          </h3>
-                          <p className="text-sm text-charcoal/60">
-                            {method.value}
-                          </p>
-                        </div>
-                        <span className="text-sm text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
-                          Visit →
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                ) : (
-                  <Button
-                    variant="ghost"
-                    onClick={method.action}
-                    className="w-full p-0 h-auto hover:bg-transparent group"
-                  >
-                    <div className="elegant-card p-6 w-full transition-all duration-300 hover:shadow-medium hover:-translate-y-1">
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1 text-left">
-                          <h3 className="font-medium text-charcoal group-hover:text-navy transition-colors duration-300">
-                            {method.label}
-                          </h3>
-                          <p className="text-sm text-charcoal/60">
-                            {method.value}
-                          </p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          {copiedEmail ? (
-                            <>
-                              <Check size={16} className="text-green-600" />
-                              <span className="text-sm text-green-600 font-medium tracking-wide">
-                                Copied!
-                              </span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy
-                                size={16}
-                                className="text-bronze group-hover:text-navy transition-colors duration-300"
-                              />
-                              <span className="text-sm text-bronze group-hover:text-navy transition-colors duration-300 tracking-wide">
-                                Copy
-                              </span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </Button>
-                )}
-              </div>
-            ))}
+      <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <p className="label">Email</p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="ink-underline mt-3 inline-block py-1.5 font-serif text-[clamp(1.75rem,7.5vw,3.25rem)] leading-tight"
+          >
+            {EMAIL}
+          </a>
+          <div className="mt-8">
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="ink-button min-w-[12rem]"
+            >
+              {status === "copied" ? "Copied ✓" : "Copy address"}
+            </button>
+            <p role="status" className="mt-3 min-h-[1.5rem] text-sm">
+              {status === "failed" &&
+                "Copying did not work. Select the address above and copy it."}
+              <span className="sr-only">
+                {status === "copied" ? "Email address copied" : ""}
+              </span>
+            </p>
           </div>
         </div>
+
+        <ul className="border-t border-foreground">
+          {links.map((link) => (
+            <li key={link.label} className="border-b border-foreground">
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="-mx-3 flex items-center justify-between gap-6 px-3 py-5 transition-colors duration-150 hover:bg-foreground hover:text-background"
+              >
+                <span>
+                  <span className="block font-serif text-2xl">
+                    {link.label}
+                  </span>
+                  <span className="mt-1 block text-base">{link.value}</span>
+                </span>
+                <span className="shrink-0 text-2xl" aria-hidden="true">
+                  →
+                </span>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

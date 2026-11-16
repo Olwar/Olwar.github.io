@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
+import { Plate, SectionHeading } from "./print";
 
 const experience = [
   {
@@ -32,155 +33,231 @@ const experience = [
   },
 ];
 
+const sections = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#media", label: "Media" },
+  { href: "#contact", label: "Contact" },
+];
+
 const MainPage = () => {
   useEffect(() => {
-    // Sophisticated scroll reveal implementation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
+    const reveal = (el: Element | null) => el?.classList.add("revealed");
+    const sections = document.querySelectorAll(".scroll-reveal");
+
+    // threshold 0: a section reveals as soon as any part of it is on screen.
+    // A ratio would never be reached by a section taller than the screen.
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && reveal(e.target)),
+      { threshold: 0 }
+    );
+    sections.forEach((el) => observer.observe(el));
+
+    // Keyboard focus and #links must never land on an invisible section.
+    const onFocus = (e: FocusEvent) =>
+      reveal((e.target as Element).closest(".scroll-reveal"));
+    const onHash = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const target = id && document.getElementById(id);
+      if (target) reveal(target.closest(".scroll-reveal"));
     };
+    onHash();
+    document.addEventListener("focusin", onFocus);
+    window.addEventListener("hashchange", onHash);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
-      });
-    }, observerOptions);
-
-    // Observe all scroll-reveal elements
-    const scrollElements = document.querySelectorAll(".scroll-reveal");
-    scrollElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("focusin", onFocus);
+      window.removeEventListener("hashchange", onHash);
+    };
   }, []);
 
   return (
-    <main className="min-h-screen bg-cream relative">
-      <div className="elegant-container relative z-10">
-        {/* Hero Section */}
-        <section className="section-spacing">
-          <div className="text-center space-y-8 animate-fade-in-up">
-            <div className="space-y-6">
-              <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl font-medium text-charcoal tracking-tight title-width mx-auto">
-                Olli Airola
-              </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl text-charcoal/80 font-light tracking-wide">
-                Psychologist &amp; AI Research Engineer
+    <div id="top" className="min-h-screen bg-background">
+      <a
+        href="#main"
+        className="ink-button sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50"
+      >
+        Skip to content
+      </a>
+
+      {/* Masthead */}
+      <header className="elegant-container">
+        <div className="flex flex-col pt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:pt-4">
+          <p className="label pt-2 sm:py-3">Helsinki, Finland</p>
+          <nav aria-label="Sections">
+            <ul className="-mx-1.5 grid grid-cols-3 min-[360px]:flex min-[360px]:justify-between sm:mx-0 sm:justify-end">
+              {sections.map((s) => (
+                <li key={s.href}>
+                  <a
+                    href={s.href}
+                    className="label inline-flex min-h-[44px] items-center px-1.5 tracking-[0.06em] hover:bg-foreground hover:text-background sm:px-2 sm:tracking-[0.14em]"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <div className="mt-1 border-t-[3px] border-foreground" />
+        <div className="mt-[3px] border-t border-foreground" />
+      </header>
+
+      <main id="main" className="elegant-container">
+        {/* Hero */}
+        <section className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
+          <div className="md:[grid-area:title] lg:self-end">
+            <p className="label">Psychologist &amp; AI Research Engineer</p>
+            <h1 className="mt-6 text-[clamp(3.5rem,13vw,7.75rem)] leading-[0.92] tracking-[-0.025em]">
+              Olli Airola
+            </h1>
+          </div>
+          <div className="md:[grid-area:text] lg:self-start">
+            <p className="max-w-[30ch] font-serif text-[1.375rem] leading-snug lg:text-[1.75rem]">
+              Combining artificial intelligence and psychology to deepen our
+              understanding of how technology can enhance human potential.
+            </p>
+            <p className="mt-6 max-w-[46ch] text-lg">
+              I take on software projects, AI consulting, lectures, and
+              psychological assessments.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a href="#contact" className="ink-button">
+                Get in touch
+              </a>
+              <a href="#projects" className="ink-button ink-button-outline">
+                See projects
+              </a>
+            </div>
+          </div>
+          <Plate
+            name="ice"
+            figure="1"
+            caption="Helsinki, seen from the frozen sea."
+            alt="A lone figure in a long coat stands on the sea ice, looking at the Helsinki skyline and its domed cathedral while snow falls."
+            priority
+            className="md:self-start md:[grid-area:plate] lg:self-center"
+          />
+        </section>
+
+        {/* About */}
+        <section
+          aria-labelledby="about"
+          className="scroll-reveal py-12 md:py-20"
+        >
+          <SectionHeading id="about" number="01">
+            About
+          </SectionHeading>
+          <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[minmax(0,1fr)_348px] md:gap-10 lg:gap-24">
+            <div className="content-width space-y-6 text-lg leading-relaxed lg:text-xl">
+              <p>
+                I'm Olli Airola, a psychologist (M.Psych.) and AI research
+                engineer based in Helsinki, Finland. I created SocialHuman, the
+                human-only social network, and I build AI tools for mental
+                health, such as <span lang="fi">Sekasin-tekoälyapuri</span>,{" "}
+                <span lang="fi">Vanhemmuuden tekoälyapuri</span>, and{" "}
+                <span lang="fi">OP Päävalmentaja</span>. I also write{" "}
+                <span lang="fi">Tekoälyn Huipulla</span>, one of the biggest AI
+                newsletters in Finland.
+              </p>
+              <p>
+                My approach to AI development is grounded in both technical
+                expertise and a deep understanding of human psychology,
+                ensuring technology serves humanity meaningfully.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* About Section */}
-        <section className="content-section scroll-reveal">
-          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
-            <div className="space-y-8">
-              <div className="space-y-8">
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal">
-                  About
-                </h2>
-                <div className="space-y-6 content-width">
-                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
-                    I'm Olli Airola, a psychologist (M.Psych.) and AI research
-                    engineer based in Helsinki, Finland. I created SocialHuman,
-                    the human-only social network, and I build AI tools for
-                    mental health, such as Sekasin-tekoälyapuri, Vanhemmuuden
-                    tekoälyapuri, and OP Päävalmentaja. I also write Tekoälyn
-                    Huipulla, one of the biggest AI newsletters in Finland.
-                  </p>
-                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
-                    Combining artificial intelligence and psychology to deepen
-                    our understanding of how technology can enhance human
-                    potential.
-                  </p>
-                  <p className="text-lg md:text-xl leading-relaxed text-charcoal/80">
-                    My approach to AI development is grounded in both technical
-                    expertise and a deep understanding of human psychology,
-                    ensuring technology serves humanity meaningfully.
-                  </p>
+            <div className="-mx-5 pr-1.5 min-[388px]:mx-0 min-[388px]:pr-0">
+            <figure className="relative mx-auto w-fit max-w-full min-[388px]:mx-0">
+              <div className="dither-shadow">
+                <div className="ink-card p-3">
+                  <img
+                    src="/art/portrait.png"
+                    alt="Olli Airola in a cap, leaning on a wooden railing outdoors."
+                    width={314}
+                    height={350}
+                    loading="lazy"
+                    decoding="async"
+                    className="pixelated art-fluid-portrait mx-auto box-content block h-auto w-[314px] max-w-[calc(100%-2px)] border border-foreground"
+                  />
+                  <figcaption className="whitespace-nowrap pb-2 pt-5 text-center font-mono text-[0.8125rem] tracking-[0.12em] sm:text-sm sm:tracking-[0.2em]">
+                    BUILD BUILD BUILD BUILD
+                  </figcaption>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-8 scroll-reveal">
-              <div className="w-full max-w-md lg:max-w-lg mx-auto lg:mx-0 lg:ml-auto">
-                <img
-                  src="/polaroid.webp"
-                  alt="Olli Airola, psychologist and AI research engineer, in a polaroid photo"
-                  width={1080}
-                  height={1350}
-                  className="w-full h-auto drop-shadow-lg transition-transform duration-500 hover:scale-105"
-                />
-              </div>
+              <div
+                aria-hidden="true"
+                className="dither-tape absolute -top-3 left-1/2 z-10 h-7 w-28 -translate-x-1/2"
+              />
+            </figure>
             </div>
           </div>
         </section>
 
-        {/* Experience Section - Horizontal timeline */}
-        <section className="content-section scroll-reveal">
-          <div className="space-y-16">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-charcoal text-center">
-              Experience
-            </h2>
-
-            <div className="max-w-6xl mx-auto">
-              <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-5 lg:gap-6">
-                <div
-                  aria-hidden="true"
-                  className="hidden lg:block absolute top-[3.5px] left-[calc(10%-0.6rem)] right-[calc(10%-0.6rem)] h-px bg-bronze/30"
-                ></div>
-                {experience.map((item) => (
-                  <div key={item.role} className="text-center scroll-reveal group">
-                    <div className="space-y-3">
-                      <div className="relative w-2 h-2 bg-bronze rounded-full mx-auto opacity-60"></div>
-                      <h3 className="text-xl md:text-2xl lg:text-xl font-serif font-medium text-charcoal">
-                        {item.role}
-                      </h3>
-                      {item.company && (
-                        <p className="text-lg lg:text-base text-navy font-medium">
-                          {item.company}
-                        </p>
-                      )}
-                      <p className="text-sm text-charcoal/60 font-mono tracking-wide">
-                        {item.period}
+        {/* Experience */}
+        <section
+          aria-labelledby="experience"
+          className="scroll-reveal py-12 md:py-20"
+        >
+          <SectionHeading id="experience" number="02">
+            Experience
+          </SectionHeading>
+          <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[392px_minmax(0,1fr)] md:gap-8 lg:gap-20">
+            <ol className="md:col-start-2 md:row-start-1 md:border-t md:border-foreground">
+              {experience.map((item) => (
+                <li
+                  key={item.role}
+                  className="grid gap-2 border-b border-foreground py-6 sm:grid-cols-[12.5rem_minmax(0,1fr)] sm:gap-8 md:grid-cols-1 md:gap-2 md:py-7 lg:grid-cols-[12.5rem_minmax(0,1fr)] lg:gap-8"
+                >
+                  <p className="label pt-1.5">{item.period}</p>
+                  <div>
+                    <h3 className="text-2xl md:text-[1.75rem]">{item.role}</h3>
+                    {item.company && (
+                      <p className="mt-1 text-lg">{item.company}</p>
+                    )}
+                    {item.note && (
+                      <p className="mt-2 font-serif text-base italic">
+                        {item.note}
                       </p>
-                      {item.note && (
-                        <p className="text-sm text-charcoal/60 italic">
-                          {item.note}
-                        </p>
-                      )}
-                    </div>
+                    )}
                   </div>
-                ))}
-              </div>
-            </div>
+                </li>
+              ))}
+            </ol>
+            <Plate
+              name="patient"
+              figure="2"
+              caption="The patient."
+              alt="A small robot lies on a therapist's couch while a man in a cap sits in an armchair and takes notes."
+              className="sticky-when-tall md:col-start-1 md:row-start-1"
+            />
           </div>
         </section>
 
-        {/* Tighter spacing for content flow */}
-        <div className="scroll-reveal">
-          <MediaSection />
-        </div>
+        <ProjectsSection />
+        <MediaSection />
+        <ContactSection />
+      </main>
 
-        <div className="scroll-reveal">
-          <ProjectsSection />
+      <footer className="elegant-container mt-8">
+        <div className="border-t border-foreground" />
+        <div className="mt-[3px] border-t-[3px] border-foreground" />
+        <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 py-8">
+          <p className="label">
+            © {new Date().getFullYear()} Olli Airola · Helsinki
+          </p>
+          <a
+            href="#top"
+            className="label -mx-1 -my-3 inline-flex min-h-[44px] items-center px-1 hover:bg-foreground hover:text-background"
+          >
+            Back to top ↑
+          </a>
         </div>
-
-        <div className="scroll-reveal">
-          <ContactSection />
-        </div>
-
-        {/* Sophisticated Footer */}
-        <footer className="py-12 text-center border-t border-border/50 scroll-reveal">
-          <div className="space-y-4">
-            <p className="text-sm text-charcoal/40 font-mono tracking-wider">
-              © {new Date().getFullYear()} Olli Airola. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
-    </main>
+      </footer>
+    </div>
   );
 };
 
