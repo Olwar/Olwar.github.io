@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 import { Plate, SectionHeading } from "./print";
+import { Snow } from "./Snow";
 
 const experience = [
   {
@@ -42,6 +43,8 @@ const sections = [
 ];
 
 const MainPage = () => {
+  const hero = useRef<HTMLElement>(null);
+
   useEffect(() => {
     const reveal = (el: Element | null) => el?.classList.add("revealed");
     const sections = document.querySelectorAll(".scroll-reveal");
@@ -75,7 +78,10 @@ const MainPage = () => {
   }, []);
 
   return (
-    <div id="top" className="min-h-screen bg-background">
+    // `isolate` keeps the snow canvas (z -10) above this background and
+    // under everything else on the page.
+    <div id="top" className="relative isolate min-h-screen bg-background">
+      <Snow until={hero} />
       <a
         href="#main"
         className="ink-button sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50"
@@ -85,10 +91,9 @@ const MainPage = () => {
 
       {/* Masthead */}
       <header className="elegant-container">
-        <div className="flex flex-col pt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:pt-4">
-          <p className="label pt-2 sm:py-3">Helsinki, Finland</p>
+        <div className="pt-3 sm:pt-4">
           <nav aria-label="Sections">
-            <ul className="-mx-1.5 grid grid-cols-3 min-[360px]:flex min-[360px]:justify-between sm:mx-0 sm:justify-end">
+            <ul className="-mx-1.5 grid grid-cols-3 min-[360px]:flex min-[360px]:justify-between sm:-mx-2">
               {sections.map((s) => (
                 <li key={s.href}>
                   <a
@@ -108,7 +113,9 @@ const MainPage = () => {
 
       <main id="main" className="elegant-container">
         {/* Hero */}
-        <section className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
+        <section
+          ref={hero}
+          className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
           <div className="md:[grid-area:title] lg:self-end">
             <p className="label">Psychologist &amp; AI Research Engineer</p>
             <h1 className="mt-6 text-[clamp(3.5rem,13vw,7.75rem)] leading-[0.92] tracking-[-0.025em]">

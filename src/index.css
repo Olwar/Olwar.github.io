@@ -137,6 +137,8 @@
     inset: 0;
     z-index: -1;
     transform: translate(6px, 6px);
+    /* Paper under the dots, so the hero snow does not show through. */
+    background-color: hsl(var(--background));
     background-image: var(--dither-50);
     image-rendering: pixelated;
     transition: transform 0.2s ease;
@@ -264,8 +266,8 @@
   }
 
   /*
-   * Pinned beside a list only when the whole figure (446 px) and its Pause
-   * button fit on the screen; on short screens it scrolls with the page.
+   * Pinned beside a list only when the whole figure and its caption fit
+   * on the screen; on short screens it scrolls with the page.
    */
   @media (min-width: 768px) and (min-height: 32rem) {
     .sticky-when-tall {
