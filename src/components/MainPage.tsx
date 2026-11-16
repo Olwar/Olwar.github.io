@@ -127,10 +127,6 @@ const MainPage = () => {
               Combining artificial intelligence and psychology to deepen our
               understanding of how technology can enhance human potential.
             </p>
-            <p className="mt-6 max-w-[46ch] text-lg">
-              I take on software projects, AI consulting, lectures, and
-              psychological assessments.
-            </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#contact" className="ink-button">
                 Get in touch
