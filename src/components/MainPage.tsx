@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import MediaSection from "./MediaSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
@@ -43,7 +43,6 @@ const sections = [
 ];
 
 const MainPage = () => {
-  const hero = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const reveal = (el: Element | null) => el?.classList.add("revealed");
@@ -78,10 +77,10 @@ const MainPage = () => {
   }, []);
 
   return (
-    // `isolate` keeps the snow canvas (z -10) above this background and
-    // under everything else on the page.
+    // `isolate` keeps the snow canvas (fixed, z -10) above this background
+    // and under everything else on the page.
     <div id="top" className="relative isolate min-h-screen bg-background">
-      <Snow until={hero} />
+      <Snow />
       <a
         href="#main"
         className="ink-button sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50"
@@ -113,9 +112,7 @@ const MainPage = () => {
 
       <main id="main" className="elegant-container">
         {/* Hero */}
-        <section
-          ref={hero}
-          className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
+        <section className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
           <div className="md:[grid-area:title] lg:self-end">
             <p className="label">Psychologist &amp; AI Research Engineer</p>
             <h1 className="mt-6 text-[clamp(3.5rem,13vw,7.75rem)] leading-[0.92] tracking-[-0.025em]">
