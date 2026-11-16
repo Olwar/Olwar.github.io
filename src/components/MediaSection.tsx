@@ -7,6 +7,8 @@ interface MediaItem {
   source: string;
   link: string;
   kind: "Article" | "Podcast";
+  /** A 48 x 48 1-bit mark in /art/media/, shown at 1:1. */
+  logo: string;
 }
 
 const mediaItems: MediaItem[] = [
@@ -16,6 +18,7 @@ const mediaItems: MediaItem[] = [
     source: "Apu",
     link: "https://www.apu.fi/artikkelit/moni-hakee-mielenterveysapua-tekoalylta-mutta-siina-on-riskinsa",
     kind: "Article",
+    logo: "apu",
   },
   {
     id: 2,
@@ -23,6 +26,7 @@ const mediaItems: MediaItem[] = [
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20083714",
     kind: "Article",
+    logo: "yle",
   },
   {
     id: 3,
@@ -30,6 +34,7 @@ const mediaItems: MediaItem[] = [
     source: "Yle Kulttuuricocktail",
     link: "https://yle.fi/a/74-20077840",
     kind: "Article",
+    logo: "yle",
   },
   {
     id: 4,
@@ -37,6 +42,7 @@ const mediaItems: MediaItem[] = [
     source: "Psykologilehti",
     link: "https://psykologilehti.fi/tekoaly-ja-psykologia-vallankumouksellinen-liitto/",
     kind: "Article",
+    logo: "psykologilehti",
   },
   {
     id: 5,
@@ -44,6 +50,7 @@ const mediaItems: MediaItem[] = [
     source: "Niinku asia on podcast",
     link: "https://podcasts.apple.com/fi/podcast/chatgpt-terapeuttina-olli-airola-pjk-111/id1464577586?i=1000714318245",
     kind: "Podcast",
+    logo: "niinku-asia-on",
   },
   {
     id: 6,
@@ -51,6 +58,7 @@ const mediaItems: MediaItem[] = [
     source: "AIka Hyvä Maailma podcast",
     link: "https://podcasts.apple.com/fi/podcast/016-teko%C3%A4lyn-huipulla-vieraana-olli-airola-teko%C3%A4lyolli/id1715699694?i=1000668616668",
     kind: "Podcast",
+    logo: "aika-hyva-maailma",
   },
 ];
 
@@ -68,10 +76,21 @@ const MediaSection = () => {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group -mx-3 grid gap-2 px-3 py-6 transition-colors duration-150 hover:bg-foreground hover:text-background md:grid-cols-[13rem_minmax(0,1fr)_7rem] md:items-baseline md:gap-8"
+              className="group -mx-3 grid gap-2 px-3 py-6 transition-colors duration-150 hover:bg-foreground hover:text-background md:grid-cols-[15rem_minmax(0,1fr)_7rem] md:items-center md:gap-8"
             >
-              <span className="label" lang="fi">
-                {item.source}
+              <span className="flex items-center gap-4">
+                <img
+                  src={`/art/media/${item.logo}.png`}
+                  alt=""
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
+                  className="pixelated box-content h-12 w-12 shrink-0 border border-foreground"
+                />
+                <span className="label" lang="fi">
+                  {item.source}
+                </span>
               </span>
               <span
                 lang="fi"
