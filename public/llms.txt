@@ -28,6 +28,7 @@ Email: olli@olliairola.com
 - [Asuntohaku – HSL-matka-ajat](https://hsl-route-api.vercel.app/): Apartment search tool that compares HSL public transport, bike, and car travel times from Oikotie listings.
 - [SOAR](https://paper-vision-bot.vercel.app/): Experiment where AI models trade crypto every day with paper money, with a dashboard of returns, win rates, and confidence intervals.
 - [Polymarket Dashboard](https://polymarket-prediction.vercel.app/): Experiment where an AI model bets on Polymarket prediction markets with paper money, with a dashboard that compares its predictions to the market odds and tracks every bet.
+- [AI Behaviour Lab](https://ai-psychology-lab.vercel.app/): Experiments on how Claude, an AI model, behaves. Each experiment has one question, one chart, and one answer, with the method fixed and reviewed before the run.
 
 ## Media appearances
 

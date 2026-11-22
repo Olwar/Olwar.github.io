@@ -96,6 +96,14 @@ const projects: Project[] = [
     link: "https://polymarket-prediction.vercel.app/",
     logo: "polymarket",
   },
+  {
+    id: 12,
+    title: "AI Behaviour Lab",
+    description:
+      "Experiments on how Claude, an AI model, behaves. Each experiment has one question, one chart, and one answer. The method and the decision rule are fixed and reviewed before the run.",
+    link: "https://ai-psychology-lab.vercel.app/",
+    logo: "ai-behaviour-lab",
+  },
 ];
 
 const ProjectCard = ({
