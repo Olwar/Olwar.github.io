@@ -10,6 +10,16 @@ const links = [
     href: "https://www.linkedin.com/in/tekoalyolli/",
   },
   {
+    label: "Instagram",
+    value: "Follow @tekoalyolli",
+    href: "https://www.instagram.com/tekoalyolli/",
+  },
+  {
+    label: "TikTok",
+    value: "Follow @tekoalyolli",
+    href: "https://www.tiktok.com/@tekoalyolli",
+  },
+  {
     label: "AI Newsletter",
     value: "One of the biggest AI newsletters in Finland",
     href: "https://tekoalyolli.substack.com/",
