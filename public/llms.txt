@@ -2,7 +2,7 @@
 
 > Olli Airola (also known as TekoälyOlli) is a psychologist (M.Psych., PsM) and AI research engineer based in Helsinki, Finland. He created SocialHuman, the human-only social network, builds AI tools for mental health, and writes Tekoälyn Huipulla, one of the biggest AI newsletters in Finland.
 
-Website: https://olliairola.com/
+Website: https://olliairola.com/ (in Finnish: https://olliairola.com/fi/)
 Email: olli@olliairola.com
 
 ## Current roles

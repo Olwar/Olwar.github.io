@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "./", // Base path for GitHub Pages
+  // The site is at the root of olliairola.com. Absolute asset paths also
+  // work from the Finnish page at /fi/.
+  base: "/",
   server: {
     host: "::",
     port: 8080,

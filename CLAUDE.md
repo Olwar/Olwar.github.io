@@ -5,6 +5,14 @@ The owner's personal site. Vite + React + TypeScript + Tailwind, one page (`src/
 - **A push to `master` deploys the live site** through the "Deploy to GitHub Pages" action (about 2 minutes). Check it with `gh run list --repo Olwar/Olwar.github.io`.
 - Build locally with `npm run build`, then `npm run preview`.
 
+## Languages
+
+- Two pages: English at `/` and Finnish at `/fi/`. `scripts/prerender.mjs` writes both, and swaps the `<head>` of the Finnish one (`fiHead`). It stops the build if a tag in `index.html` does not match.
+- **All page text is in `src/copy.tsx`**, in the objects `en` and `fi`. Add every new string to both. Components hold only structure, links and logos.
+- A script at the top of `index.html` sends a reader from `/` to `/fi/` when the first browser language is Finnish. The "Suomeksi" / "English" link in the masthead saves the choice (`localStorage` key `lang`), and the saved choice wins.
+- Finnish rules: decimal comma, `20 %`, en dash for ranges, `-podcast` style compounds, sentence-case headings. Put a soft hyphen (`­`) in a long compound that does not fit a card at 320 px. Write both as escapes, not as invisible characters.
+- Asset paths must stay absolute (`base: "/"` in `vite.config.ts`), or `/fi/` loses its CSS and JS.
+
 ## The style: 1-bit ink on paper
 
 The whole site looks like a 1-bit print: the same two colours as the owner's three animated art GIFs (`public/art/ice`, `patient`, `workshop`). Every change must keep this look. The tokens and component classes are in `src/index.css`.

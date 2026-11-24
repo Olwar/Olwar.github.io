@@ -1,9 +1,11 @@
 import React from "react";
 import { SectionHeading } from "./print";
+import { useCopy } from "@/copy";
 
 interface MediaItem {
   id: number;
   title: string;
+  /** The name of the paper or the show; podcasts get " podcast" after it. */
   source: string;
   link: string;
   kind: "Article" | "Podcast";
@@ -47,7 +49,7 @@ const mediaItems: MediaItem[] = [
   {
     id: 5,
     title: "ChatGPT terapeuttina",
-    source: "Niinku asia on podcast",
+    source: "Niinku asia on",
     link: "https://podcasts.apple.com/fi/podcast/chatgpt-terapeuttina-olli-airola-pjk-111/id1464577586?i=1000714318245",
     kind: "Podcast",
     logo: "niinku-asia-on",
@@ -55,7 +57,7 @@ const mediaItems: MediaItem[] = [
   {
     id: 6,
     title: "Tekoälyn huipulla: vieraana Olli Airola",
-    source: "AIka Hyvä Maailma podcast",
+    source: "AIka Hyvä Maailma",
     link: "https://podcasts.apple.com/fi/podcast/016-teko%C3%A4lyn-huipulla-vieraana-olli-airola-teko%C3%A4lyolli/id1715699694?i=1000668616668",
     kind: "Podcast",
     logo: "aika-hyva-maailma",
@@ -63,10 +65,11 @@ const mediaItems: MediaItem[] = [
 ];
 
 const MediaSection = () => {
+  const c = useCopy();
   return (
     <section aria-labelledby="media" className="scroll-reveal py-12 md:py-20">
       <SectionHeading id="media" number="04">
-        Media Appearances
+        {c.headings.media}
       </SectionHeading>
 
       <ul>
@@ -90,6 +93,7 @@ const MediaSection = () => {
                 />
                 <span className="label" lang="fi">
                   {item.source}
+                  {item.kind === "Podcast" && c.media.podcast}
                 </span>
               </span>
               <span
@@ -99,8 +103,8 @@ const MediaSection = () => {
                 {item.title}
               </span>
               <span className="label md:text-right">
-                {item.kind === "Podcast" ? "Listen" : "Read"} →
-                <span className="sr-only"> (opens in a new tab)</span>
+                {item.kind === "Podcast" ? c.media.listen : c.media.read} →
+                <span className="sr-only"> {c.newTab}</span>
               </span>
             </a>
           </li>

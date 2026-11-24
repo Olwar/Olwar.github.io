@@ -1,37 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { SectionHeading } from "./print";
+import { useCopy, type ContactKey } from "@/copy";
 
 const EMAIL = "olli@olliairola.com";
 
-const links = [
-  {
-    label: "LinkedIn",
-    value: "Connect professionally",
-    href: "https://www.linkedin.com/in/tekoalyolli/",
-  },
-  {
-    label: "Instagram",
-    value: "Follow @tekoalyolli",
-    href: "https://www.instagram.com/tekoalyolli/",
-  },
-  {
-    label: "TikTok",
-    value: "Follow @tekoalyolli",
-    href: "https://www.tiktok.com/@tekoalyolli",
-  },
-  {
-    label: "AI Newsletter",
-    value: "One of the biggest AI newsletters in Finland",
-    href: "https://tekoalyolli.substack.com/",
-  },
-  {
-    label: "GitHub",
-    value: "View my open source projects",
-    href: "https://github.com/Olwar",
-  },
+const links: { key: ContactKey; href: string }[] = [
+  { key: "linkedin", href: "https://www.linkedin.com/in/tekoalyolli/" },
+  { key: "instagram", href: "https://www.instagram.com/tekoalyolli/" },
+  { key: "tiktok", href: "https://www.tiktok.com/@tekoalyolli" },
+  { key: "newsletter", href: "https://tekoalyolli.substack.com/" },
+  { key: "github", href: "https://github.com/Olwar" },
 ];
 
 const ContactSection = () => {
+  const c = useCopy();
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
   const timer = useRef<number>();
 
@@ -54,12 +36,12 @@ const ContactSection = () => {
       className="scroll-reveal py-12 md:py-20"
     >
       <SectionHeading id="contact" number="05">
-        Get in Touch
+        {c.headings.contact}
       </SectionHeading>
 
       <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
-          <p className="label">Email</p>
+          <p className="label">{c.contact.email}</p>
           <a
             href={`mailto:${EMAIL}`}
             className="ink-underline mt-3 inline-block py-1.5 font-serif text-[clamp(1.75rem,7.5vw,3.25rem)] leading-tight"
@@ -72,13 +54,12 @@ const ContactSection = () => {
               onClick={copyEmail}
               className="ink-button min-w-[12rem]"
             >
-              {status === "copied" ? "Copied ✓" : "Copy address"}
+              {status === "copied" ? c.contact.copied : c.contact.copy}
             </button>
             <p role="status" className="mt-3 min-h-[1.5rem] text-sm">
-              {status === "failed" &&
-                "Copying did not work. Select the address above and copy it."}
+              {status === "failed" && c.contact.failed}
               <span className="sr-only">
-                {status === "copied" ? "Email address copied" : ""}
+                {status === "copied" ? c.contact.copiedSr : ""}
               </span>
             </p>
           </div>
@@ -86,7 +67,7 @@ const ContactSection = () => {
 
         <ul className="border-t border-foreground">
           {links.map((link) => (
-            <li key={link.label} className="border-b border-foreground">
+            <li key={link.key} className="border-b border-foreground">
               <a
                 href={link.href}
                 target="_blank"
@@ -95,14 +76,16 @@ const ContactSection = () => {
               >
                 <span>
                   <span className="block font-serif text-2xl">
-                    {link.label}
+                    {c.contact.links[link.key].label}
                   </span>
-                  <span className="mt-1 block text-base">{link.value}</span>
+                  <span className="mt-1 block text-base">
+                    {c.contact.links[link.key].value}
+                  </span>
                 </span>
                 <span className="shrink-0 text-2xl" aria-hidden="true">
                   →
                 </span>
-                <span className="sr-only"> (opens in a new tab)</span>
+                <span className="sr-only"> {c.newTab}</span>
               </a>
             </li>
           ))}

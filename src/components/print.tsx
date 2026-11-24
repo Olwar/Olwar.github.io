@@ -1,4 +1,5 @@
 import React from "react";
+import { useCopy, type PlateName } from "@/copy";
 
 /** Numbered section heading with a hard rule, like a chapter in a printed book. */
 export const SectionHeading = ({
@@ -30,23 +31,23 @@ export const SectionHeading = ({
  * A 1-bit illustration as a numbered plate. The art is 360 x 360 and shows
  * at exactly 360 CSS px from a 360 px screen up, so one dot is one CSS pixel,
  * like the dot patterns in the rest of the page. The loop plays; readers who
- * ask for reduced motion get the first frame as a still.
+ * ask for reduced motion get the first frame as a still. The caption and
+ * the alt text come from copy.tsx, in the language of the page.
  */
 export const Plate = ({
   name,
   figure,
-  caption,
-  alt,
   priority = false,
   className = "",
 }: {
-  name: string;
+  name: PlateName;
   figure: string;
-  caption: string;
-  alt: string;
   priority?: boolean;
   className?: string;
-}) => (
+}) => {
+  const c = useCopy();
+  const { caption, alt } = c.plates[name];
+  return (
   // The frame fills its column and the art sits in its centre at 1:1, like
   // a print in a paper mount. Below 440 px the plate is a full-width band
   // (rules above and below, no side borders or shadow), so a 360 px screen
@@ -74,9 +75,12 @@ export const Plate = ({
         </div>
       </div>
       <figcaption className="mt-4 flex gap-3 px-5 text-sm leading-snug min-[440px]:px-0">
-        <span className="label shrink-0 pt-[0.15rem]">Fig. {figure}</span>
+        <span className="label shrink-0 pt-[0.15rem]">
+          {c.fig} {figure}
+        </span>
         <span className="font-serif italic [text-wrap:balance]">{caption}</span>
       </figcaption>
     </figure>
   </div>
-);
+  );
+};

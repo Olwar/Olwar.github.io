@@ -4,45 +4,24 @@ import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 import { Plate, SectionHeading } from "./print";
 import { Snow } from "./Snow";
+import { useCopy, type Lang, type SectionId } from "@/copy";
 
-const experience = [
-  {
-    role: "Chief Technology Officer",
-    company: "Jollido",
-    period: "Apr 2025 — Present",
-  },
-  {
-    role: "AI Research Engineer",
-    company: "Illusian Founder Office",
-    period: "Oct 2024 — Present",
-  },
-  {
-    role: "Solopreneur",
-    period: "Oct 2023 — Present",
-    note: "Software projects, AI consulting, lectures, and psychological assessments",
-  },
-  {
-    role: "Data & AI Consultant",
-    company: "Codento Oy",
-    period: "Apr 2023 — Oct 2023",
-  },
-  {
-    role: "Psychologist",
-    company: "Various Organizations",
-    period: "Jan 2020 — Jun 2023",
-    note: "4.48/5 client satisfaction rating",
-  },
-];
+const sectionIds: SectionId[] = ["about", "experience", "projects", "media", "contact"];
 
-const sections = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#media", label: "Media" },
-  { href: "#contact", label: "Contact" },
-];
+const navLink =
+  "label inline-flex min-h-[44px] items-center px-1.5 tracking-[0.06em] hover:bg-foreground hover:text-background sm:px-2 sm:tracking-[0.14em]";
+
+/** Saves the language the reader picked, so `/` does not send them back. */
+const remember = (lang: Lang) => {
+  try {
+    localStorage.setItem("lang", lang);
+  } catch {
+    // Storage is blocked (private mode): the link still works.
+  }
+};
 
 const MainPage = () => {
+  const c = useCopy();
 
   useEffect(() => {
     const reveal = (el: Element | null) => el?.classList.add("revealed");
@@ -85,24 +64,32 @@ const MainPage = () => {
         href="#main"
         className="ink-button sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50"
       >
-        Skip to content
+        {c.skip}
       </a>
 
       {/* Masthead */}
       <header className="elegant-container">
         <div className="pt-3 sm:pt-4">
-          <nav aria-label="Sections">
-            <ul className="-mx-1.5 grid grid-cols-3 min-[360px]:flex min-[360px]:justify-between sm:-mx-2">
-              {sections.map((s) => (
-                <li key={s.href}>
-                  <a
-                    href={s.href}
-                    className="label inline-flex min-h-[44px] items-center px-1.5 tracking-[0.06em] hover:bg-foreground hover:text-background sm:px-2 sm:tracking-[0.14em]"
-                  >
-                    {s.label}
+          <nav aria-label={c.nav.label}>
+            <ul className="-mx-1.5 grid grid-cols-3 sm:-mx-2 sm:flex sm:justify-between">
+              {sectionIds.map((id) => (
+                <li key={id}>
+                  <a href={`#${id}`} className={navLink}>
+                    {c.nav.sections[id]}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href={c.nav.other.href}
+                  hrefLang={c.nav.other.lang}
+                  lang={c.nav.other.lang}
+                  onClick={() => remember(c.nav.other.lang)}
+                  className={navLink}
+                >
+                  {c.nav.other.label}
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -114,30 +101,27 @@ const MainPage = () => {
         {/* Hero */}
         <section className="grid grid-cols-1 gap-x-8 gap-y-8 py-12 md:grid-cols-[minmax(0,1fr)_392px] md:gap-y-10 md:py-16 md:[grid-template-areas:'title_title'_'text_plate'] lg:gap-x-16 lg:gap-y-8 lg:py-20 lg:[grid-template-areas:'title_plate'_'text_plate']">
           <div className="md:[grid-area:title] lg:self-end">
-            <p className="label">Psychologist &amp; AI Research Engineer</p>
+            <p className="label">{c.hero.kicker}</p>
             <h1 className="mt-6 text-[clamp(3.5rem,13vw,7.75rem)] leading-[0.92] tracking-[-0.025em]">
               Olli Airola
             </h1>
           </div>
           <div className="md:[grid-area:text] lg:self-start">
             <p className="max-w-[30ch] font-serif text-[1.375rem] leading-snug lg:text-[1.75rem]">
-              Combining artificial intelligence and psychology to deepen our
-              understanding of how technology can enhance human potential.
+              {c.hero.line}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#contact" className="ink-button">
-                Get in touch
+                {c.hero.contact}
               </a>
               <a href="#projects" className="ink-button ink-button-outline">
-                See projects
+                {c.hero.projects}
               </a>
             </div>
           </div>
           <Plate
             name="ice"
             figure="1"
-            caption="Helsinki, seen from the frozen sea."
-            alt="A lone figure in a long coat stands on the sea ice, looking at the Helsinki skyline and its domed cathedral while snow falls."
             priority
             className="md:self-start md:[grid-area:plate] lg:self-center"
           />
@@ -149,25 +133,13 @@ const MainPage = () => {
           className="scroll-reveal py-12 md:py-20"
         >
           <SectionHeading id="about" number="01">
-            About
+            {c.headings.about}
           </SectionHeading>
           <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[minmax(0,1fr)_348px] md:gap-10 lg:gap-24">
             <div className="content-width space-y-6 text-lg leading-relaxed lg:text-xl">
-              <p>
-                I'm Olli Airola, a psychologist (M.Psych.) and AI research
-                engineer based in Helsinki, Finland. I created SocialHuman, the
-                human-only social network, and I build AI tools for mental
-                health, such as <span lang="fi">Sekasin-tekoälyapuri</span>,{" "}
-                <span lang="fi">Vanhemmuuden tekoälyapuri</span>, and{" "}
-                <span lang="fi">OP Päävalmentaja</span>. I also write{" "}
-                <span lang="fi">Tekoälyn Huipulla</span>, one of the biggest AI
-                newsletters in Finland.
-              </p>
-              <p>
-                My approach to AI development is grounded in both technical
-                expertise and a deep understanding of human psychology,
-                ensuring technology serves humanity meaningfully.
-              </p>
+              {c.about.body.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
 
             <div className="-mx-5 pr-1.5 min-[388px]:mx-0 min-[388px]:pr-0">
@@ -176,14 +148,14 @@ const MainPage = () => {
                 <div className="ink-card p-3">
                   <img
                     src="/art/portrait.png"
-                    alt="Olli Airola in a cap, leaning on a wooden railing outdoors."
+                    alt={c.about.portraitAlt}
                     width={314}
                     height={350}
                     loading="lazy"
                     decoding="async"
                     className="pixelated art-fluid-portrait mx-auto box-content block h-auto w-[314px] max-w-[calc(100%-2px)] border border-foreground"
                   />
-                  <figcaption className="whitespace-nowrap pb-2 pt-5 text-center font-mono text-[0.8125rem] tracking-[0.12em] sm:text-sm sm:tracking-[0.2em]">
+                  <figcaption lang="en" className="whitespace-nowrap pb-2 pt-5 text-center font-mono text-[0.8125rem] tracking-[0.12em] sm:text-sm sm:tracking-[0.2em]">
                     BUILD BUILD BUILD BUILD
                   </figcaption>
                 </div>
@@ -203,13 +175,13 @@ const MainPage = () => {
           className="scroll-reveal py-12 md:py-20"
         >
           <SectionHeading id="experience" number="02">
-            Experience
+            {c.headings.experience}
           </SectionHeading>
           <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[392px_minmax(0,1fr)] md:gap-8 lg:gap-20">
             <ol className="md:col-start-2 md:row-start-1 md:border-t md:border-foreground">
-              {experience.map((item) => (
+              {c.experience.map((item) => (
                 <li
-                  key={item.role}
+                  key={item.period}
                   className="grid gap-2 border-b border-foreground py-6 sm:grid-cols-[12.5rem_minmax(0,1fr)] sm:gap-8 md:grid-cols-1 md:gap-2 md:py-7 lg:grid-cols-[12.5rem_minmax(0,1fr)] lg:gap-8"
                 >
                   <p className="label pt-1.5">{item.period}</p>
@@ -230,8 +202,6 @@ const MainPage = () => {
             <Plate
               name="patient"
               figure="2"
-              caption="The patient."
-              alt="A small robot lies on a therapist's couch while a man in a cap sits in an armchair and takes notes."
               className="sticky-when-tall md:col-start-1 md:row-start-1"
             />
           </div>
@@ -253,7 +223,7 @@ const MainPage = () => {
             href="#top"
             className="label -mx-1 -my-3 inline-flex min-h-[44px] items-center px-1 hover:bg-foreground hover:text-background"
           >
-            Back to top ↑
+            {c.backToTop}
           </a>
         </div>
       </footer>

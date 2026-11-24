@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!--
+      Readers whose browser language is Finnish get the Finnish page at /fi/.
+      A reader who picks a language with the link in the masthead keeps it
+      (localStorage "lang"). Runs before the page draws, so no English flash.
+    -->
+    <script>
+      (function () {
+        var path = location.pathname;
+        if (path !== "/" && path !== "/index.html") return;
+        var pick = null;
+        try {
+          pick = localStorage.getItem("lang");
+        } catch (e) {}
+        var browser = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+        if (pick === "fi" || (!pick && /^fi\b/i.test(browser))) {
+          location.replace("/fi/" + location.search + location.hash);
+        }
+      })();
+    </script>
+
     <title>Olli Airola — Psychologist & AI Research Engineer</title>
     <meta
       name="description"
@@ -16,6 +36,9 @@
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://olliairola.com/" />
+    <link rel="alternate" hreflang="en" href="https://olliairola.com/" />
+    <link rel="alternate" hreflang="fi" href="https://olliairola.com/fi/" />
+    <link rel="alternate" hreflang="x-default" href="https://olliairola.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
@@ -29,6 +52,7 @@
     <meta property="og:image:alt" content="Olli Airola, psychologist and AI research engineer" />
     <meta property="og:site_name" content="Olli Airola" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fi_FI" />
     <meta property="profile:first_name" content="Olli" />
     <meta property="profile:last_name" content="Airola" />
 
@@ -49,7 +73,7 @@
             "@id": "https://olliairola.com/#website",
             "url": "https://olliairola.com/",
             "name": "Olli Airola",
-            "inLanguage": "en",
+            "inLanguage": ["en", "fi"],
             "publisher": {
               "@id": "https://olliairola.com/#person"
             }
@@ -66,7 +90,7 @@
             "mainEntity": {
               "@id": "https://olliairola.com/#person"
             },
-            "dateModified": "2026-11-16"
+            "dateModified": "2026-11-24"
           },
           {
             "@type": "Person",
