@@ -71,7 +71,7 @@ const MainPage = () => {
       <header className="elegant-container">
         <div className="pt-3 sm:pt-4">
           <nav aria-label={c.nav.label}>
-            <ul className="-mx-1.5 grid grid-cols-3 sm:-mx-2 sm:flex sm:justify-between">
+            <ul className="-mx-1.5 grid grid-cols-[repeat(3,auto)] justify-between sm:-mx-2 sm:flex">
               {sectionIds.map((id) => (
                 <li key={id}>
                   <a href={`#${id}`} className={navLink}>
@@ -186,7 +186,9 @@ const MainPage = () => {
                 >
                   <p className="label pt-1.5">{item.period}</p>
                   <div>
-                    <h3 className="text-2xl md:text-[1.75rem]">{item.role}</h3>
+                    <h3 lang={item.lang} className="text-2xl md:text-[1.75rem]">
+                      {item.role}
+                    </h3>
                     {item.company && (
                       <p className="mt-1 text-lg">{item.company}</p>
                     )}

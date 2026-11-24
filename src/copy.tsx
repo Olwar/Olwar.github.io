@@ -20,6 +20,8 @@ interface OtherLang {
 
 interface Job {
   role: string;
+  /** The language of the title, when it is not the language of the page. */
+  lang?: Lang;
   company?: string;
   period: string;
   note?: string;
@@ -51,7 +53,7 @@ export type ContactKey = "linkedin" | "instagram" | "tiktok" | "newsletter" | "g
 export interface Copy {
   skip: string;
   nav: { label: string; sections: Record<SectionId, string>; other: OtherLang };
-  hero: { kicker: string; line: string; contact: string; projects: string };
+  hero: { kicker: ReactNode; line: string; contact: string; projects: string };
   fig: string;
   plates: Record<PlateName, { caption: string; alt: string }>;
   headings: Record<SectionId, string>;
@@ -227,8 +229,9 @@ const en: Copy = {
   backToTop: "Back to top ↑",
 };
 
-// Non-breaking spaces (\u00A0) keep "1 000" and "20 %" on one line. A soft
-// hyphen (\u00AD) lets a long compound break inside a narrow card.
+// Write the Finnish as a Finn writes it first, not as a translation. Job
+// titles and other English terms stay in English, with lang="en".
+// Non-breaking spaces (\u00A0) keep "1 000" and "20 %" on one line.
 const fi: Copy = {
   skip: "Siirry sisältöön",
   nav: {
@@ -237,55 +240,69 @@ const fi: Copy = {
       about: "Minusta",
       experience: "Työkokemus",
       projects: "Projektit",
-      media: "Media",
-      contact: "Yhteys",
+      media: "Mediassa",
+      contact: "Yhteystiedot",
     },
     other: { lang: "en", href: "/", label: "English" },
   },
   hero: {
-    kicker: "Psykologi ja tekoälykehittäjä",
-    line: "Yhdistän tekoälyn ja psykologian, jotta ymmärtäisimme paremmin, miten teknologia voi auttaa ihmistä kasvamaan täyteen mittaansa.",
+    kicker: (
+      <>
+        Psykologi &amp; <span lang="en">AI Research Engineer</span>
+      </>
+    ),
+    line: "Yhdistän tekoälyä ja psykologiaa. Haluan ymmärtää, miten teknologia voi tuoda esiin ihmisten parhaat puolet.",
     contact: "Ota yhteyttä",
     projects: "Katso projektit",
   },
   fig: "Kuva",
   plates: {
     ice: {
-      caption: "Helsinki jäätyneeltä mereltä nähtynä.",
-      alt: "Yksinäinen hahmo pitkässä takissa seisoo merijäällä lumisateessa ja katsoo Helsingin siluettia ja tuomiokirkon kupolia.",
+      caption: "Helsinki merijäältä nähtynä.",
+      alt: "Pitkätakkinen hahmo seisoo yksin merijäällä lumisateessa ja katsoo kohti Helsingin rantaa ja tuomiokirkon kupolia.",
     },
     patient: {
       caption: "Potilas.",
-      alt: "Pieni robotti makaa terapeutin sohvalla, ja lippalakkipäinen mies istuu nojatuolissa ja tekee muistiinpanoja.",
+      alt: "Pieni robotti makaa terapeutin divaanilla. Lippalakkipäinen mies istuu nojatuolissa ja tekee muistiinpanoja.",
     },
     workshop: {
       caption: "Verstas.",
-      alt: "Kaksi kättä kokoaa hammasrattaista mekaanisia aivoja pöytälampun valossa savuavan juotoskolvin vieressä.",
+      alt: "Kädet kokoavat pöytälampun valossa mekaanisia aivoja hammasrattaista. Vieressä savuaa juotoskolvi.",
     },
   },
   headings: {
     about: "Minusta",
     experience: "Työkokemus",
-    projects: "Valitut projektit",
+    projects: "Projektit",
     media: "Mediassa",
     contact: "Ota yhteyttä",
   },
   about: {
     body: [
-      "Olen Olli Airola, psykologi (PsM) ja tekoälykehittäjä Helsingistä. Loin SocialHumanin, vain ihmisille tarkoitetun somepalvelun, ja teen tekoälytyökaluja mielenterveyden tueksi, kuten Sekasin-tekoälyapuria, Vanhemmuuden tekoälyapuria ja OP Päävalmentajaa. Kirjoitan myös Tekoälyn Huipulla -uutiskirjettä, joka on yksi Suomen suurimmista tekoälyuutiskirjeistä.",
-      "Kehitän tekoälyä sekä teknisen osaamisen että ihmismielen syvällisen tuntemuksen pohjalta, jotta teknologiasta olisi ihmisille todellista hyötyä.",
+      <>
+        Olen Olli Airola, helsinkiläinen psykologi (PsM) ja{" "}
+        <span lang="en">AI research engineer</span>. Kehitin
+        SocialHuman-somepalvelun, jossa kaikki sisältö on oikeiden ihmisten
+        tekemää. Olen
+        myös ollut mukana kehittämässä mielenterveyttä tukevia
+        tekoälytyökaluja, kuten
+        Sekasin-tekoälyapuria, Vanhemmuuden tekoälyapuria ja OP
+        Päävalmentajaa. Lisäksi kirjoitan Tekoälyn Huipulla -uutiskirjettä, joka
+        on Suomen suurimpia tekoälyuutiskirjeitä.
+      </>,
+      "Tekoälyä kehittäessäni nojaan sekä tekniseen osaamiseen että ihmismielen tuntemukseen. Tavoitteeni on, että teknologiasta on ihmisille aidosti hyötyä.",
     ],
-    portraitAlt: "Olli Airola lippalakissa nojaa ulkona puiseen kaiteeseen.",
+    portraitAlt: "Lippalakkipäinen Olli Airola nojaa ulkona puiseen kaiteeseen.",
   },
   experience: [
-    { role: "Teknologiajohtaja (CTO)", company: "Jollido", period: "4/2025 alkaen" },
-    { role: "Tutkimusinsinööri, tekoäly", company: "Illusian Founder Office", period: "10/2024 alkaen" },
+    { role: "Chief Technology Officer", lang: "en", company: "Jollido", period: "4/2025 alkaen" },
+    { role: "AI Research Engineer", lang: "en", company: "Illusian Founder Office", period: "10/2024 alkaen" },
     {
       role: "Yksinyrittäjä",
       period: "10/2023 alkaen",
       note: "Ohjelmistoprojekteja, tekoälykonsultointia, luentoja ja psykologisia arviointeja",
     },
-    { role: "Data- ja tekoälykonsultti", company: "Codento Oy", period: "4/2023–10/2023" },
+    { role: "Data & AI Consultant", lang: "en", company: "Codento Oy", period: "4/2023–10/2023" },
     {
       role: "Psykologi",
       company: "Useita työnantajia",
@@ -299,58 +316,59 @@ const fi: Copy = {
       socialhuman: {
         title: "SocialHuman",
         description:
-          "Somepalvelu vain ihmisille. Oikea ihminen kuvaa jokaisen julkaisun suoraan sovelluksessa ilman valmiita kuvia ja suodattimia, ja julkaisu tarkistetaan ennen kuin kukaan näkee sen. Ilmainen iOS:lle ja Androidille.",
+          "Somepalvelu vain ihmisille. Julkaisut kuvataan suoraan sovelluksessa, eikä valmiita kuvia tai suodattimia voi käyttää. Jokainen julkaisu tarkistetaan, ennen kuin se näkyy muille. Ilmainen iOS:lle ja Androidille.",
       },
       jollido: {
         title: "Jollido",
         description:
-          "Rakennan teknologiajohtajana Jollidoa, sovellusta sosiaaliseen jännittämiseen. Sen tekoälyvalmentajan kanssa voit harjoitella ennen oikeita tilanteita, kuten palavereja, juhlia ja treffejä. Psykologien kehittämä. Saatavilla Google Playssa, iPhonelle tulossa pian.",
+          "Olen Jollidon CTO. Jollido on psykologien kehittämä sovellus, josta saat apua sosiaaliseen jännittämiseen: tekoälyvalmentajan kanssa voit harjoitella etukäteen jännittäviä tilanteita, kuten palavereja, juhlia ja treffejä. Ladattavissa Google Playsta, iPhonelle tulossa pian.",
       },
       ilma: {
         title: "Ilma",
         description:
-          "Tarkempi kuin kotimaiset sääpalvelut Ilmatieteen laitos ja Foreca. Ilma yhdistää kuusi säämallia ja näyttää, missä ne ovat eri mieltä, joten tiedät, kuinka paljon kuhunkin ennusteeseen voi luottaa. Joka yö se vertaa lämpötila-, tuuli- ja sade-ennusteitaan 14 suomalaisen sääaseman mittauksiin.",
+          "Ilma ennustaa tarkemmin kuin Ilmatieteen laitos ja Foreca. Se yhdistää kuusi säämallia ja näyttää, kuinka paljon niiden ennusteet eroavat toisistaan. Erosta näet, miten luotettava ennuste on. Osuvuus tarkistetaan joka yö vertaamalla ennusteita 14 suomalaisen sääaseman havaintoihin.",
       },
       newsletter: {
-        title: "Tekoäly\u00ADuutiskirje",
+        title: "Tekoälyn Huipulla",
         description:
           "Yksi Suomen suurimmista tekoälyuutiskirjeistä. Ilmainen ja suomenkielinen. Tavoitteena on tehdä Suomesta tekoälyosaamisen ykkösmaa.",
       },
       sekasin: {
         title: "Sekasin-tekoälyapuri",
         description:
-          "Tekoälyapuri, joka auttaa nuoria saamaan mielenterveyden tukea silloinkin, kun ihmistä ei ole tavoitettavissa. Kehitetty Illusian Founder Officessa.",
+          "Tekoälyapuri, joka tukee nuoria silloin, kun Sekasin-chatissa ei ole ihmistä vastaamassa. Kehitetty Illusian Founder Officessa.",
       },
       parenting: {
         title: "Vanhemmuuden tekoälyapuri",
         description:
-          "Ympäri vuorokauden toimiva tekoälyapuri, joka antaa vanhemmille tutkittuun tietoon perustuvaa tukea vanhemmuuteen, lapsen kehitykseen ja mielenterveyteen. Tehty yhdessä MIELI ry:n, SOS-Lapsikylän ja Suomen Punaisen Ristin kanssa.",
+          "Tekoälyapuri, joka tukee vanhempia ympäri vuorokauden. Se antaa tutkittua tietoa vanhemmuudesta, lapsen kehityksestä ja mielenterveydestä. Kehitetty yhteistyössä MIELI ry:n, SOS-Lapsikylän ja Suomen Punaisen Ristin kanssa.",
       },
       coach: {
         title: "OP Päävalmentaja",
         description:
-          "Tekoälytyökalu, joka auttaa junioriurheilun valmentajia tukemaan nuorten urheilijoiden mielen hyvinvointia ja löytämään sanat vaikeisiin keskusteluihin. Tehty yhdessä MIELI ry:n ja OP Pohjolan kanssa.",
+          "Tekoälytyökalu junioriurheilun valmentajille. Sen avulla valmentaja voi tukea urheilijoiden mielen hyvinvointia ja ottaa vaikeat asiat puheeksi. Kehitetty yhteistyössä MIELI ry:n ja OP Pohjolan kanssa.",
       },
       apartments: {
         title: "Asuntohaku – HSL-matka-ajat",
         description:
-          "Asunnonhakutyökalu, joka vertaa matka-aikoja Oikotien asunnoista paikkoihin, joissa käyt useimmin: HSL:n joukkoliikenteellä, pyörällä ja autolla.",
+          "Asunnonhakutyökalu, joka näyttää Oikotien asunnoista matka-ajat paikkoihin, joissa käyt useimmin: HSL:n joukkoliikenteellä, pyörällä ja autolla.",
       },
       soar: {
         title: "SOAR",
         description:
-          "Kokeilu, jossa tekoälymallit käyvät joka päivä kryptokauppaa leikkirahalla. Jokainen positio suljetaan vasta voitto- tai tappiorajalla, ja jokainen kauppa kirjataan. Kojelauta näyttää tuotot, voittoprosentit suhteessa kannattavuusrajaan ja luottamusvälit.",
+          "Kokeilu, jossa tekoälymallit käyvät joka päivä leikkirahalla kauppaa kryptovaluutoilla. Positio suljetaan vasta, kun hinta osuu take profit- tai stop loss -tasoon. Kaikki kaupat kirjataan. Dashboardista näkee tuotot, luottamusvälit ja sen, ylittääkö voittoprosentti break-even-tason.",
       },
       polymarket: {
-        title: "Polymarket-kojelauta",
+        title: "Polymarket Dashboard",
+        lang: "en",
         description:
-          "Kokeilu, jossa tekoälymalli lyö vetoa Polymarketin ennustemarkkinoilla 1\u00A0000 leikkidollarilla. Joka päivä se tutkii markkinoita verkkohaun ja taloustietojen avulla ja lyö vetoa vain, kun sen oma todennäköisyysarvio on vähintään 20\u00A0% markkinoiden arviota korkeampi. Kojelauta seuraa jokaista vetoa ja sen tulosta.",
+          "Kokeilu, jossa tekoälymalli lyö vetoa Polymarketin ennustemarkkinoilla 1\u00A0000 leikkidollarilla. Malli käy vetokohteet läpi joka päivä verkkohaun ja taloustietojen avulla ja panostaa vain, jos sen oma todennäköisyysarvio on vähintään 20\u00A0% markkinoiden arviota korkeampi. Dashboardista näkee jokaisen vedon ja sen tuloksen.",
       },
       behaviourLab: {
         title: "AI Behaviour Lab",
         lang: "en",
         description:
-          "Kokeita siitä, miten tekoälymalli Claude käyttäytyy. Jokaisessa kokeessa on yksi kysymys, yksi kaavio ja yksi vastaus. Menetelmä ja päätössääntö lyödään lukkoon ja tarkistetaan ennen kuin koe tehdään.",
+          "Kokeita, joissa selvitetään, miten tekoälymalli Claude käyttäytyy. Jokaisessa kokeessa on yksi kysymys, yksi kaavio ja yksi vastaus. Menetelmä ja päätössääntö tarkistetaan ja lyödään lukkoon, ennen kuin koe aloitetaan.",
       },
     },
   },
@@ -360,17 +378,17 @@ const fi: Copy = {
     copy: "Kopioi osoite",
     copied: "Kopioitu ✓",
     copiedSr: "Sähköpostiosoite kopioitu",
-    failed: "Kopiointi ei onnistunut. Valitse osoite yltä ja kopioi se.",
+    failed: "Kopiointi ei onnistunut. Valitse osoite ja kopioi se itse.",
     links: {
-      linkedin: { label: "LinkedIn", value: "Verkostoidutaan" },
+      linkedin: { label: "LinkedIn", value: "Löydät minut LinkedInistä" },
       instagram: { label: "Instagram", value: "Seuraa @tekoalyolli" },
       tiktok: { label: "TikTok", value: "Seuraa @tekoalyolli" },
-      newsletter: { label: "Tekoälyuutiskirje", value: "Yksi Suomen suurimmista tekoälyuutiskirjeistä" },
+      newsletter: { label: "Tekoälyn Huipulla", value: "Yksi Suomen suurimmista tekoälyuutiskirjeistä" },
       github: { label: "GitHub", value: "Avoimen lähdekoodin projektini" },
     },
   },
-  newTab: "(avautuu uudessa välilehdessä)",
-  backToTop: "Takaisin ylös ↑",
+  newTab: "(avautuu uuteen välilehteen)",
+  backToTop: "Sivun alkuun ↑",
 };
 
 export const copy: Record<Lang, Copy> = { en, fi };
@@ -380,10 +398,10 @@ export const copy: Record<Lang, Copy> = { en, fi };
  * English values in index.html when it makes dist/fi/index.html.
  */
 export const fiHead = {
-  title: "Olli Airola – psykologi ja tekoälykehittäjä",
+  title: "Olli Airola – psykologi & AI Research Engineer",
   description:
-    "Helsinkiläinen psykologi ja tekoälykehittäjä. SocialHumanin luoja, Jollidon teknologiajohtaja ja Tekoälyn Huipulla -uutiskirjeen kirjoittaja.",
+    "Helsinkiläinen psykologi ja AI Research Engineer. SocialHumanin tekijä, Jollidon CTO ja Tekoälyn Huipulla -uutiskirjeen kirjoittaja.",
   ogDescription:
-    "Psykologi ja tekoälykehittäjä, joka loi vain ihmisille tarkoitetun SocialHuman-somepalvelun ja tekee tekoälytyökaluja mielenterveyden tueksi.",
-  imageAlt: "Olli Airola, psykologi ja tekoälykehittäjä",
+    "Psykologi ja AI Research Engineer. SocialHumanin tekijä, joka on myös ollut mukana kehittämässä mielenterveyttä tukevia tekoälytyökaluja.",
+  imageAlt: "Olli Airola, psykologi ja AI Research Engineer",
 };

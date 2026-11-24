@@ -10,6 +10,9 @@ The owner's personal site. Vite + React + TypeScript + Tailwind, one page (`src/
 - Two pages: English at `/` and Finnish at `/fi/`. `scripts/prerender.mjs` writes both, and swaps the `<head>` of the Finnish one (`fiHead`). It stops the build if a tag in `index.html` does not match.
 - **All page text is in `src/copy.tsx`**, in the objects `en` and `fi`. Add every new string to both. Components hold only structure, links and logos.
 - A script at the top of `index.html` sends a reader from `/` to `/fi/` when the first browser language is Finnish. The "Suomeksi" / "English" link in the masthead saves the choice (`localStorage` key `lang`), and the saved choice wins.
+- **The Finnish must read as if a Finn wrote it first** (the owner's bar is AAA). Do not mirror the English sentence. Use short sentences with one subject. Use no em dashes.
+- **Obvious English terms stay in English** (owner's rule): the job titles exactly as on the English page (`AI Research Engineer`, `Chief Technology Officer`, `Data & AI Consultant`, `CTO`), dashboard, take profit, stop loss, break-even. Mark them `lang="en"` (`Job.lang`, a `<span>` in a node).
+- Grade new Finnish blind: graders see only the Finnish lines (no English, no `copy.tsx`), framed as "find the machine-translated lines", with an old rejected line mixed in as a canary.
 - Finnish rules: decimal comma, `20 %`, en dash for ranges, `-podcast` style compounds, sentence-case headings. Put a soft hyphen (`­`) in a long compound that does not fit a card at 320 px. Write both as escapes, not as invisible characters.
 - Asset paths must stay absolute (`base: "/"` in `vite.config.ts`), or `/fi/` loses its CSS and JS.
 
