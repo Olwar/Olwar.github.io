@@ -162,7 +162,7 @@ const en: Copy = {
       ilma: {
         title: "Ilma",
         description:
-          "More accurate than Finland's own weather services, FMI and Foreca. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast. Every night it checks its temperature, wind, and rain forecasts at 14 Finnish weather stations.",
+          "More accurate than Finland's own weather services, FMI and Foreca. Ilma blends six weather models and shows where they disagree, so you know how much to trust each forecast.",
       },
       newsletter: {
         title: "AI Newsletter",
@@ -326,7 +326,7 @@ const fi: Copy = {
       ilma: {
         title: "Ilma",
         description:
-          "Ilma ennustaa tarkemmin kuin Ilmatieteen laitos ja Foreca. Se yhdistää kuusi säämallia ja näyttää, kuinka paljon niiden ennusteet eroavat toisistaan. Erosta näet, miten luotettava ennuste on. Osuvuus tarkistetaan joka yö vertaamalla ennusteita 14 suomalaisen sääaseman havaintoihin.",
+          "Ilma ennustaa tarkemmin kuin Ilmatieteen laitos ja Foreca. Se yhdistää kuusi säämallia ja näyttää, kuinka paljon niiden ennusteet eroavat toisistaan. Erosta näet, miten luotettava ennuste on.",
       },
       newsletter: {
         title: "Tekoälyn Huipulla",
