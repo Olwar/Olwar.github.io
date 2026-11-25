@@ -196,17 +196,17 @@ const en: Copy = {
       soar: {
         title: "SOAR",
         description:
-          "An experiment where AI models trade crypto every day with paper money. Each position closes only at its take-profit or stop-loss, and every trade is logged. The dashboard shows returns, win rates against breakeven, and confidence intervals.",
+          "An experiment where AI models trade crypto every day with paper money. The dashboard shows their returns and win rates.",
       },
       polymarket: {
         title: "Polymarket Dashboard",
         description:
-          "An experiment where an AI model bets on Polymarket prediction markets with $1,000 of paper money. Every day it researches the markets with web search and financial data, and it bets only when its own probability is at least 20% higher than the market's. The dashboard tracks every bet and its result.",
+          "An experiment where an AI model bets on Polymarket prediction markets with $1,000 of paper money. Every day it researches the markets with web search and financial data. The dashboard tracks every bet and its result.",
       },
       behaviourLab: {
         title: "AI Behaviour Lab",
         description:
-          "Experiments on how Claude, an AI model, behaves. Each experiment has one question, one chart, and one answer. The method and the decision rule are fixed and reviewed before the run.",
+          "Experiments on how Claude, an AI model, behaves. Each experiment has one question, one chart, and one answer.",
       },
     },
   },
@@ -231,7 +231,7 @@ const en: Copy = {
 
 // Write the Finnish as a Finn writes it first, not as a translation. Job
 // titles and other English terms stay in English, with lang="en".
-// Non-breaking spaces (\u00A0) keep "1 000" and "20 %" on one line.
+// Non-breaking spaces (\u00A0) keep "1 000" on one line.
 const fi: Copy = {
   skip: "Siirry sisältöön",
   nav: {
@@ -356,19 +356,19 @@ const fi: Copy = {
       soar: {
         title: "SOAR",
         description:
-          "Kokeilu, jossa tekoälymallit käyvät joka päivä leikkirahalla kauppaa kryptovaluutoilla. Positio suljetaan vasta, kun hinta osuu take profit- tai stop loss -tasoon. Kaikki kaupat kirjataan. Dashboardista näkee tuotot, luottamusvälit ja sen, ylittääkö voittoprosentti break-even-tason.",
+          "Kokeilu, jossa tekoälymallit käyvät joka päivä leikkirahalla kauppaa kryptovaluutoilla. Dashboardista näkee mallien tuotot ja voittoprosentit.",
       },
       polymarket: {
         title: "Polymarket Dashboard",
         lang: "en",
         description:
-          "Kokeilu, jossa tekoälymalli lyö vetoa Polymarketin ennustemarkkinoilla 1\u00A0000 leikkidollarilla. Malli käy vetokohteet läpi joka päivä verkkohaun ja taloustietojen avulla ja panostaa vain, jos sen oma todennäköisyysarvio on vähintään 20\u00A0% markkinoiden arviota korkeampi. Dashboardista näkee jokaisen vedon ja sen tuloksen.",
+          "Kokeilu, jossa tekoälymalli lyö vetoa Polymarketin ennustemarkkinoilla 1\u00A0000 leikkidollarilla. Malli käy vetokohteet läpi joka päivä verkkohaun ja taloustietojen avulla. Dashboardista näkee jokaisen vedon ja sen tuloksen.",
       },
       behaviourLab: {
         title: "AI Behaviour Lab",
         lang: "en",
         description:
-          "Kokeita, joissa selvitetään, miten tekoälymalli Claude käyttäytyy. Jokaisessa kokeessa on yksi kysymys, yksi kaavio ja yksi vastaus. Menetelmä ja päätössääntö tarkistetaan ja lyödään lukkoon, ennen kuin koe aloitetaan.",
+          "Kokeita, joissa selvitetään, miten tekoälymalli Claude käyttäytyy. Jokaisessa kokeessa on yksi kysymys, yksi kaavio ja yksi vastaus.",
       },
     },
   },
