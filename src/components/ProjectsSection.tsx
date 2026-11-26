@@ -19,12 +19,12 @@ const projects: Project[] = [
     link: "https://mieli.fi/uutiset/sekasin-chat-hakee-tekoalysta-ratkaisuja-nuorten-mielenterveyskriisiin/",
     logo: "sekasin",
   },
+  { key: "behaviourLab", link: "https://ai-psychology-lab.vercel.app/", logo: "ai-behaviour-lab" },
   { key: "parenting", link: "https://mieli.fi/tukea-ja-apua/vanhemmuuden-tekoalyapuri/", logo: "mieli" },
   { key: "coach", link: "https://mieli.fi/paavalmentaja/", logo: "op" },
   { key: "apartments", link: "https://hsl-route-api.vercel.app/", logo: "asuntohaku" },
   { key: "soar", link: "https://paper-vision-bot.vercel.app/", logo: "soar" },
   { key: "polymarket", link: "https://polymarket-prediction.vercel.app/", logo: "polymarket" },
-  { key: "behaviourLab", link: "https://ai-psychology-lab.vercel.app/", logo: "ai-behaviour-lab" },
 ];
 
 const ProjectCard = ({
